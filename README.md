@@ -1,9 +1,14 @@
-
 **USED BOOKS WEB APP**
 ======================
 ### (TEAM 14)
 
 <br>
+
+TEAM MEMBERS:
+==============================
+* Rishika Agarwal
+* Vidhi Shah
+* Tanvee Balhara
 
 OVERVIEW:
 =========
