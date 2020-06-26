@@ -12,7 +12,7 @@ body{
 	-moz-box-shadow: -9px 10px 50px 1px rgba(0,0,0,0.74);
 }
 
-#login{
+#Signup{
 	font-family: 'Source Serif Pro', serif;
 	color: blue;
 }
@@ -45,8 +45,9 @@ body{
 	color:white;
 	font-weight: bold;
 	font-size: 1.5rem;
-	position:relative;
-	top:100%;
+	position:absolute;
+	top:83%;
+	left:40%;
 }
 
 input{
@@ -65,16 +66,26 @@ input{
 		width:50%;
 	}
 	.card{
-		height: 100%;
+		height: 15rem;
 		background-color: white;
 	}
 	.card-body{
 		background-color: blue;
+		height: 102%;
 		width:124%;
 		position: relative;
 		left:-10%;
 		top:2%;	
 	}
+	.card a{
+		position: absolute;
+		top: 85%;
+		padding-bottom: 100px;
+	}
+	.card-title{
+		margin-bottom: 0;
+	}
+
 	#card_container{
 		padding: 0;
 	}
