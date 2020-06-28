@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'bookstore/home.html', {'title' : 'HOME'})
+    return render(request, 'bookstore/landingpage.html', {'title' : 'HOME'})
 
 def buy(request):
     context = {
