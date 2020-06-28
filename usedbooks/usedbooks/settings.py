@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookstore.apps.BookstoreConfig',
-    'users.apps.UsersConfig',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [

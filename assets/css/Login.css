@@ -54,8 +54,8 @@ input{
 	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.45);
 	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.45);
 	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.45);
-	width:100%;
 }
+
 .form-control{
 	border:0.5px solid black;
 	width:90%;
