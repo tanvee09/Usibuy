@@ -1,84 +1,54 @@
 body {
-    background: #fafafa;
-    color: #333333;
-    margin-top: 5rem;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    color: #444444;
-  }
-  
-  ul {
+  background-image: url('images/navbg.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  background-position: fixed;
+}
+
+.navbar {
+  border-radius: 30px;
+  margin: 0 20%;
+}
+.navbar-brand img {
+  height: 35px;
+  width: 35px;
+}
+
+.navbar-nav a {
+  color: rgb(255, 255, 255);
+}
+#hamburger {
+  height: 35px;
+  width: 35px;
+}
+.navs {
+  font-weight: 300;
+  font-family: "Faster One", cursive;
+  font-size: 20px;
+  margin-left: 40px;
+  width: 60px;
+  transition: width 1s;
+  transition-timing-function: linear;
+}
+.navs:hover {
+  background-color: rgb(67, 96, 134);
+  width: 100px;
+  color: aliceblue;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 770px) {
+  .navbar {
     margin: 0;
   }
-  
-  .bg-steel {
-    background-color: #336f9b;
+  .navs:hover {
+    width: 300px;
   }
-  
-  .site-header .navbar-nav .nav-link {
-    color: #cbd5db;
+
+  body {
+    background-image: url("images/navbg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-  
-  .site-header .navbar-nav .nav-link:hover {
-    color: #ffffff;
-  }
-  
-  .site-header .navbar-nav .nav-link.active {
-    font-weight: 500;
-  }
-  
-  .content-section {
-    background: #ffffff;
-    padding: 10px 20px;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
-    margin-bottom: 20px;
-  }
-  
-  .article-title {
-    color: #444444;
-  }
-  
-  a.article-title:hover {
-    color: #428bca;
-    text-decoration: none;
-  }
-  
-  .article-content {
-    white-space: pre-line;
-  }
-  
-  .article-img {
-    height: 65px;
-    width: 65px;
-    margin-right: 16px;
-  }
-  
-  .article-metadata {
-    padding-bottom: 1px;
-    margin-bottom: 4px;
-    border-bottom: 1px solid #e3e3e3
-  }
-  
-  .article-metadata a:hover {
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .article-svg {
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
-  }
-  
-  .account-img {
-    height: 125px;
-    width: 125px;
-    margin-right: 20px;
-    margin-bottom: 16px;
-  }
-  
-  .account-heading {
-    font-size: 2.5rem;
-  }
+}

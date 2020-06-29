@@ -20,34 +20,36 @@
 </head>
 
 <body>
-    <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-            <div class="container">
-                <a class="navbar-brand mr-4" href="/">UsedBooks</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'bookstore-home' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'bookstore-buy' %}">Buy</a>
-                        <a class="nav-item nav-link" href="{% url 'bookstore-sell' %}">Sell</a>
-                    </div>
-                    <!-- Navbar Right Side -->
-                    <div class="navbar-nav">
-                        {% if user.is_authenticated %}
-                            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div class="container">
+      <nav class="navbar navbar-expand-md  fixed-top">
+        <a href="#" class="navbar-brand"
+          ><img src="https://cdn.iconscout.com/icon/free/png-256/bookshelf-274-459914.png" alt=""
+        /></a>
+        <button
 
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"><img
+              id="hamburger"
+              src="https://img.icons8.com/officel/16/000000/menu.png"
+          /></span></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav">
+            <a href="#" class="nav-item nav-link navs">HOME</a>
+            <a href="#" class="nav-item nav-link navs">LOGIN</a>
+            <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">ABOUT</a>
+          </div>
+        </div>
+      </nav>
+
+            {% block content %}{% endblock %}
+
+    </div>
 
     <div class = "container">
 	    {% if messages %}
@@ -57,7 +59,8 @@
 	    </div>
 	    {% endfor%}
 	    {% endif %}
-        {% block content %}{% endblock %}
+
+
     </div>
 
     <!-- Optional JavaScript -->

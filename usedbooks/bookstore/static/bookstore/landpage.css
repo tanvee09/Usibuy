@@ -60,11 +60,7 @@ body {
     width: 300px;
   }
 
-  body {
-    background-image: url("images/mob-bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
 }
 
 @media screen and (min-width: 669px) {
