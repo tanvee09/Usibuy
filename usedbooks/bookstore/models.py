@@ -2,12 +2,12 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-class Post(models.Model) :
-    title = models.CharField(max_length = 100)
-    description = models.TextField()
-    date_posted = models.DateTimeField(default = timezone.now)
-    price = models.IntegerField()
-    seller = models.ForeignKey(User, on_delete = models.CASCADE)
-
+class Book(models.Model):
+    title = models.CharField(max_length = 200,default = '')
+    description = models.TextField(default = '')
+    price = models.IntegerField(default = 0)
+    author = models.CharField(max_length = 200, default = '')
+    author_id = models.ForeignKey(User, on_delete = models.CASCADE,default = '')
+    #author_id = models.ForeignKey(User, on_delete = models.CASCADE, default='')
     def __str__(self) :
         return self.title

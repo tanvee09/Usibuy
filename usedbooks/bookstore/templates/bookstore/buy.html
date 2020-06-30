@@ -1,9 +1,24 @@
-{% extends "bookstore/base.html" %}
+{% extends "./base.html" %}
 
 {% block content %}
-    {% for book in books %}
-        <h1>{{ book.title }}</h1>
-        <p>By {{ book.seller }}</p>
-        <p>{{ book.description }}</p>
-    {% endfor %}
+	<h1>Buy Books</h1>
+	{% for book in books %}
+        	<div class="col-12 col-md-6 col-lg-3">
+			<div class="card m-1" style="width:16 rem;">
+				<div class="card-body">
+					<img class="card-img-top" src="">
+					<h5 class="card-title text-center"><{{ book.title }}></h5>
+					<p class="crad-text">
+					<ul class="list-unstyled">
+						<li><strong>Price - {{ book.price }}</strong></li>
+						<li>Author - {{ book.author }}</li>
+						<li><small>Listed By - {{ book.name }}</small></li>
+					</ul>
+					</p>
+					<a href="{% url 'book-detail' question.id %}" class="btn btn-success">Buy</a>
+					<a href="#" class="btn btn-primary">More Details</a>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
 {% endblock content %}
