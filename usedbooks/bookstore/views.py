@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from .models import Book
 from django.http import HttpResponseRedirect
 from .forms import SellForm
+
 
 def home(request):
     return render(request, 'bookstore/landingpage.html', {'title': 'HOME'})
 
 
 def buy(request):
-    return render(request, 'bookstore/buy.html', { 'books': Book.objects.all() })
-
-def detail(request, question_id):
-    return render(request, 'bookstore/detail.html', { 'book' : Book.objects.get(pk = question_id) })
+    context = {
+        'title': 'BUY'
+    }
+    return render(request, 'bookstore/buy.html', context)
 
 
 def sell(request):
@@ -27,4 +27,3 @@ def Book(request):
         form = SellForm()
 
     return render(request, 'bookstore/sell.html', {'form': form})
-
