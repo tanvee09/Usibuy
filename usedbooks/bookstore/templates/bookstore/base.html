@@ -1,4 +1,6 @@
+
 {% load static %}
+
 
 <!DOCTYPE html>
 <html>
@@ -8,66 +10,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel = "stylesheet" type = "text/css" href = "{% static 'bookstore/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bookstore/main.css' %}">
 
     {% if title %}
-        <title>{{ title }}</title>
+    <title>{{ title }}</title>
     {% else %}
-        <title>UsedBooks</title>
+    <title>UsedBooks</title>
     {% endif %}
 </head>
 
 <body>
+<div class="container">
     <div class="container">
-      <nav class="navbar navbar-expand-md  fixed-top">
-        <a href="#" class="navbar-brand"
-          ><img src="https://cdn.iconscout.com/icon/free/png-256/bookshelf-274-459914.png" alt=""
-        /></a>
-        <button
+        <nav class="navbar navbar-expand-md  fixed-top">
+            <a href="#" class="navbar-brand"
+            ><img src="https://cdn.iconscout.com/icon/free/png-256/bookshelf-274-459914.png" alt=""
+            /></a>
+            <button
 
-          type="button"
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#navbarCollapse"
-        >
+                    type="button"
+                    class="navbar-toggler"
+                    data-toggle="collapse"
+                    data-target="#navbarCollapse"
+            >
           <span class="navbar-toggler-icon"><img
-              id="hamburger"
-              src="https://img.icons8.com/officel/16/000000/menu.png"
+                  id="hamburger"
+                  src="https://img.icons8.com/officel/16/000000/menu.png"
           /></span></span>
-        </button>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav">
-            <a href="#" class="nav-item nav-link navs">HOME</a>
-            <a href="#" class="nav-item nav-link navs">LOGIN</a>
-            <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">ABOUT</a>
-          </div>
-        </div>
-      </nav>
-
-            {% block content %}{% endblock %}
-
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link navs">HOME</a>
+                    <a href="#" class="nav-item nav-link navs">LOGIN</a>
+                    <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">ABOUT</a>
+                </div>
+            </div>
+        </nav>
     </div>
 
-    <div class = "container">
-	    {% if messages %}
-	    {% for message in messages %}
-	    <div class="alert alert-{{ message.tags }}">
-		    {{ message }}
-	    </div>
-	    {% endfor%}
-	    {% endif %}
-
-
+    <div class="container">
+        {% block content %}{% endblock %}
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</div>
+
+
+</div>
+
+
 </body>
 
 </html>

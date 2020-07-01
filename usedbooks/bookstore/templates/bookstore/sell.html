@@ -1,9 +1,15 @@
 {% extends "bookstore/base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-   <form action="SELL" method="post">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
+    <fieldset class="form-group">
+        <h1 class="border-bottom mb-4">ADD BOOK</h1>
+        {{ form|crispy }}
+    </fieldset>
+    <div class="form-group ">
+        <button id="signin" class="btn " type="submit">SAVE</button>
+    </div>
 </form>
+
 {% endblock content %}
