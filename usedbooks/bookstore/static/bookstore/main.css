@@ -1,10 +1,13 @@
-body {
+body{
   background-image: url('images/navbg.png');
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  overflow: hidden;
+
   background-position: fixed;
+
 }
+
+
 
 .navbar {
   border-radius: 30px;
@@ -37,7 +40,14 @@ body {
   color: aliceblue;
   border-radius: 5px;
 }
-
+form{
+  margin: 120px 50px ;
+  background-color: rgb(43, 72, 99);
+  padding: 30px;
+  color: white;
+  border: 2px solid black;
+  border-radius: 30px;
+}
 @media screen and (max-width: 770px) {
   .navbar {
     margin: 0;

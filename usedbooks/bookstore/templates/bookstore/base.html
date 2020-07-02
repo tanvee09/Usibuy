@@ -1,7 +1,5 @@
 
 {% load static %}
-
-
 <!DOCTYPE html>
 <html>
 
@@ -10,20 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+   <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'bookstore/main.css' %}">
 
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
-    <title>UsedBooks</title>'
-    {% endir %}
+    <title>UsedBooks</title>
+    {% endif %}
 </head>
 
 <body>
-<div class="container">
+<div class="container-fluid">
     <div class="container">
         <nav class="navbar navbar-expand-md  fixed-top">
             <a href="#" class="navbar-brand"
@@ -38,7 +42,7 @@
           <span class="navbar-toggler-icon"><img
                   id="hamburger"
                   src="https://img.icons8.com/officel/16/000000/menu.png"
-          /></span></span>
+          /></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -49,18 +53,23 @@
                 </div>
             </div>
         </nav>
+
     </div>
 
-    <div class="container">
-        {% block content %}{% endblock %}
+
+    <div class="container" id="added-block">
+        {% block content %}
+
+        {% endblock %}
     </div>
 
 </div>
 
 
-</div>
+
 
 
 </body>
 
 </html>
+

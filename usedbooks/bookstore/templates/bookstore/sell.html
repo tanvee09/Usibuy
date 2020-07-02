@@ -1,15 +1,78 @@
-{% extends "bookstore/base.html" %}
 {% load crispy_forms_tags %}
-{% block content %}
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <fieldset class="form-group">
-        <h1 class="border-bottom mb-4">ADD BOOK</h1>
-        {{ form|crispy }}
-    </fieldset>
-    <div class="form-group ">
-        <button id="signin" class="btn " type="submit">SAVE</button>
-    </div>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html>
 
-{% endblock content %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'bookstore/main.css' %}">
+
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>UsedBooks</title>
+    {% endif %}
+</head>
+
+<body>
+<div class="container-fluid" id="back">
+    <div class="container">
+        <nav class="navbar navbar-expand-md ">
+            <a href="#" class="navbar-brand"
+            ><img src="https://cdn.iconscout.com/icon/free/png-256/bookshelf-274-459914.png" alt=""
+            /></a>
+            <button
+                    type="button"
+                    class="navbar-toggler"
+                    data-toggle="collapse"
+                    data-target="#navbarCollapse"
+            >
+          <span class="navbar-toggler-icon"><img
+                  id="hamburger"
+                  src="https://img.icons8.com/officel/16/000000/menu.png"
+          /></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link navs">HOME</a>
+                    <a href="#" class="nav-item nav-link navs">LOGIN</a>
+                    <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">ABOUT</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <h1 class="border-bottom mb-4" id="add">ADD BOOK</h1>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group ">
+                <button id="signin" class="btn btn-primary " type="submit">SAVE</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+
+</body>
+
+</html>
+
+
