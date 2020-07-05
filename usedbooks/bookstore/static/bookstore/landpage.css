@@ -1,11 +1,10 @@
 body {
-  background-image: url('images/bg2.png');
+  background-image: url("images/bg2.png");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  overflow: hidden;
+  background-size: 100%;
+  overflow-x: hidden;
   background-position: fixed;
 }
-
 .navbar {
   border-radius: 30px;
   margin: 0 20%;
@@ -18,6 +17,9 @@ body {
 .navbar-nav a {
   color: rgb(255, 255, 255);
 }
+.navbar.scroll {
+  background-color: black;
+}
 #hamburger {
   height: 35px;
   width: 35px;
@@ -27,47 +29,76 @@ body {
   font-family: "Faster One", cursive;
   font-size: 20px;
   margin-left: 40px;
-  width: 60px;
-  transition: width 1s;
-  transition-timing-function: linear;
 }
 .navs:hover {
   background-color: rgb(67, 96, 134);
-  width: 100px;
+
   color: aliceblue;
   border-radius: 5px;
 }
 #disp {
-  margin-top: 50px;
+  margin-top: 180px;
 }
 
 #tagline {
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   font-family: "Caveat Brush", cursive;
-  margin-top: 100px;
+  margin-top: 80px;
   text-align: center;
 }
 
-
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
+  .pdf {
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 900px) {
+  body {
+    background-image: url("images/bg1.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow-x: hidden;
+    background-position: fixed;
+  }
+}
+@media screen and (max-width: 700px) {
   #disp {
-    visibility: hidden;
+    display: none;
+  }
+  #tagline h1 {
+    font-size: 30px;
   }
 }
 @media screen and (max-width: 770px) {
   .navbar {
     margin: 0;
   }
-  .navs:hover {
-    width: 300px;
+
+  body {
+    background-image: url("images/mob-bg.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow-x: hidden;
+    background-position: fixed;
   }
-
-
+  #mobile-disp {
+    margin-top: 150px;
+  }
+  #tagline h1 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #mobile-disp {
+    margin-top: 100px;
+  }
 }
 
-@media screen and (min-width: 669px) {
-  .mobilecards {
-    visibility: hidden;
+@media screen and (min-width: 700px) {
+  #mobile-disp {
+    display: none;
+  }
+  #tagline h1 {
+    font-size: 40px;
   }
 }

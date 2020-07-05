@@ -48,6 +48,10 @@ form{
   border: 2px solid black;
   border-radius: 30px;
 }
+#bookcard{
+  margin-top: 300px;
+}
+
 @media screen and (max-width: 770px) {
   .navbar {
     margin: 0;

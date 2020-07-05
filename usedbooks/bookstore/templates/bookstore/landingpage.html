@@ -60,10 +60,10 @@
 
     </div>
     <div class="container" id='disp'>
-			<div class="row">
-        <div class="col-lg-2 col-md-1"></div>
+		<div class="row">
 
-        <div class="col-md-4 col-sm-10">
+
+        <div class="col-lg-4 col-md-5 col-sm-10">
           <ul class="align">
 				<li>
 					<figure class='book'>
@@ -72,6 +72,128 @@
 						<ul class='hardcover_front'>
 							<li>
 								<img src="media/BUY.png" alt="" width="100%" height="100%">
+							</li>
+							<li></li>
+						</ul>
+
+						<!-- Pages -->
+						<ul class='page'>
+							<li></li>
+							<li>
+								<a href="{% url 'bookstore-buy' %}"><img src="media/buybooks.png" alt="" width="100%" height="100%"></a>
+							</li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+
+						<!-- Back -->
+						<ul class='hardcover_back'>
+							<li></li>
+							<li></li>
+						</ul>
+						<ul class='book_spine'>
+							<li></li>
+							<li></li>
+						</ul>
+
+
+        </div>
+
+        <div class="col-lg-4 col-md-5 col-sm-10">
+          <ul class="align">
+				<li>
+					<figure class='book'>
+
+						<!-- Front -->
+						<ul class='hardcover_front'>
+							<li>
+								<img src="media/SELL.png" alt="" width="100%" height="100%">
+							</li>
+							<li></li>
+						</ul>
+
+						<!-- Pages -->
+						<ul class='page'>
+							<li></li>
+							<li>
+								<a href="{% url 'bookstore-sell' %}"><img src="media/sellbooks.png" alt="" width="100%" height="100%"></a>
+							</li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+
+						<!-- Back -->
+						<ul class='hardcover_back'>
+							<li></li>
+							<li></li>
+						</ul>
+						<ul class='book_spine'>
+							<li></li>
+							<li></li>
+						</ul>
+
+
+
+
+
+      </div>
+
+		   <div class="col-lg-3" class="pdf">
+          <ul class="align">
+				<li>
+					<figure class='book'>
+
+						<!-- Front -->
+						<ul class='hardcover_front'>
+							<li>
+								<img src="media/PDF.png" alt="" width="100%" height="100%">
+							</li>
+							<li></li>
+						</ul>
+
+						<!-- Pages -->
+						<ul class='page'>
+							<li></li>
+							<li>
+								<img src="media/pdf-sec.png" alt="" width="100%" height="100%">
+							</li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+
+						<!-- Back -->
+						<ul class='hardcover_back'>
+							<li></li>
+							<li></li>
+						</ul>
+						<ul class='book_spine'>
+							<li></li>
+							<li></li>
+						</ul>
+
+
+
+
+
+      </div>
+      </div>
+      </div>
+	<div class="container" id='mobile-disp'>
+			<div class="row">
+
+
+        <div class="col-lg-4 col-md-5 col-sm-10">
+          <ul class="align">
+				<li>
+					<figure class='book'>
+
+						<!-- Front -->
+						<ul class='hardcover_front'>
+							<li>
+								<a href="{% url 'bookstore-buy' %}"><img src="media/BUY.png" alt="" width="100%" height="100%"></a>
 							</li>
 							<li></li>
 						</ul>
@@ -100,7 +222,7 @@
 
         </div>
 
-        <div class="col-md-4 col-sm-10">
+        <div class="col-lg-4  col-md-5 col-sm-10">
           <ul class="align">
 				<li>
 					<figure class='book'>
@@ -108,7 +230,7 @@
 						<!-- Front -->
 						<ul class='hardcover_front'>
 							<li>
-								<img src="media/SELL.png" alt="" width="100%" height="100%">
+								<a href="{% url 'bookstore-sell' %}"><img src="media/SELL.png" alt="" width="100%" height="100%"></a>
 							</li>
 							<li></li>
 						</ul>
@@ -139,12 +261,50 @@
 
 
       </div>
+
+         <div class="col-lg-4  col-md-5 col-sm-10" class="pdf">
+          <ul class="align">
+				<li>
+					<figure class='book'>
+
+						<!-- Front -->
+						<ul class='hardcover_front'>
+							<li>
+								<img src="media/PDF.png" alt="" width="100%" height="100%">
+							</li>
+							<li></li>
+						</ul>
+
+						<!-- Pages -->
+						<ul class='page'>
+							<li></li>
+							<li>
+								<img src="media/pdf-sec.png" alt="" width="100%" height="100%">
+							</li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+
+						<!-- Back -->
+						<ul class='hardcover_back'>
+							<li></li>
+							<li></li>
+						</ul>
+						<ul class='book_spine'>
+							<li></li>
+							<li></li>
+						</ul>
+
+
+
+
+
+      </div>
+
+
       </div>
       </div>
 
-
-
-
-    </div>
   </body>
 </html>
