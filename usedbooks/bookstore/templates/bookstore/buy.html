@@ -1,24 +1,54 @@
-{% extends "bookstore/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'bookstore/buy.css' %}">
+		<title>Buy Page</title>
+	</head>
+	<body>
+		<div class="d-flex row">
+			<div class="col-lg-3 col-md-4">
+				<nav class="nav flex-column navbar navbar-dark bg-dark align-items-start">
+					<a class="navbar-brand mb-5" href="#"><img src="https://cdn.iconscout.com/icon/free/png-256/bookshelf-274-459914.png"></a>
+					
+					<form class="form-inline ">
+						<input class="form-control mr-sm-2 p-2 mb-1" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+					</form>
+					<a class="nav-link" href="#">Home</a>
+					<a class="nav-link" href="#">About</a>
+					<a class="nav-link" href="#">Logout</a>
+				</nav>
+			</div>
+			<div class="col-lg-9 col-lg-8">
+			<h1 class="text-center"> Buy Books</h1>
+			{% for book in books %}
+			<div class="col-12 col-md-6 col-lg-3">
+				<div class = "card m-1" style="width:15rem">
+					<div class="card-body">
+						<img class="card-img-top" src="{{ book.image.url}}">
+						<h5 class="card-title text-center">{{book.title}}</h5>
+						<p class="card-text">
+						<ul class="list-unstyled">
+							<li><strong>Price - {{book.price }}</strong></li>
+							<li>Autor - {{ book.author }}</li>
+							<li><small>Listed By - {{book.name}}</small></li>
+						</ul>
+						</p>
+						<a href="#" class="btn btn-success">Buy</a>
+						<a href="{% url 'book-detail' book.id %}" class="btn btn-primary">More Details</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	</body>
+</html>
 
-{% block content %}
-    <h1>Buy Books</h1>
-    {% for book in books %}
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="card m-1" style="width:16 rem;">
-                <div class="card-body">
-			<img class="card-img-top" src="{{ book.image.url }}">
-                    <h5 class="card-title text-center"><{{ book.title }}></h5>
-                    <p class="crad-text">
-                    <ul class="list-unstyled">
-                        <li><strong>Price - {{ book.price }}</strong></li>
-                        <li>Author - {{ book.author }}</li>
-                        <li><small>Listed By - {{ book.name }}</small></li>
-                    </ul>
-                    </p>
-                    <a href="#" class="btn btn-success">Buy</a>
-		    <a href="{% url 'book-detail' book.id %}" class="btn btn-primary">More Details</a>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-{% endblock content %}
