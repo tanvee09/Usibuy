@@ -12,8 +12,9 @@ def buy(request):
     return render(request, 'bookstore/buy.html', {'books': Book.objects.all()})
 
 
-def detail(request, question_id):
-    return render(request, 'bookstore/detail.html', {'book': Book.objects.get(pk=question_id)})
+def detail(request, id):
+    book_det = Book.objects.get(id=id)
+    return render(request, 'bookstore/book_detail.html', {'book_det': book_det})
 
 
 def sell(request):

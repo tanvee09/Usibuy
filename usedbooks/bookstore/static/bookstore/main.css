@@ -4,10 +4,7 @@ body{
   background-repeat: no-repeat;
 
   background-position: fixed;
-
 }
-
-
 
 .navbar {
   border-radius: 30px;
@@ -40,6 +37,11 @@ body{
   color: aliceblue;
   border-radius: 5px;
 }
+
+#deets{
+  margin-top: 200px;
+}
+
 form{
   margin: 120px 50px ;
   background-color: rgb(43, 72, 99);
@@ -48,6 +50,7 @@ form{
   border: 2px solid black;
   border-radius: 30px;
 }
+
 #bookcard{
   margin-top: 300px;
 }
@@ -61,8 +64,10 @@ form{
   }
 
   body {
-    background-image: url("images/navbg.png");
+    background-image: url("images/bg1.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
+    overflow-x: hidden;
+    background-position: fixed;
   }
 }
