@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Book
+from .models import Book, Note
 from django.http import HttpResponseRedirect
-from .forms import SellForm
+from .forms import SellForm, NoteForm
 
 
 def home(request):
@@ -28,6 +28,23 @@ def sell(request):
 
     return render(request, 'bookstore/sell.html', {'form': form})
     # return render(request, 'bookstore/sell.html', {'title': 'SELL BOOKS'})
+
+def note_list(request):
+    notes = Note.objects.all()
+    return render(request,'bookstore/note_list.html',{
+        'notes': notes})
+
+def upload_note(request):
+    if request.method == 'POST':
+        form = NoteForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('note_list')
+    else:
+        form = NoteForm()
+    return render(request, 'bookstore/upload_note.html',{
+        'form': form
+        })
 
 # def Book(request):
 #     if request.method == 'POST':

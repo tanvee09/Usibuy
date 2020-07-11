@@ -13,3 +13,11 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+class Note(models.Model):
+    topic = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    pdf = models.FileField(upload_to="notes/pdfs/")
+
+    def __str__(self):
+        return self.title
