@@ -7,7 +7,9 @@ class Profile(models.Model):
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     college = models.CharField(default='Enter college', max_length=100)
     phone = models.BigIntegerField(default=0)
-    about = models.TextField(default='')
+    state = models.CharField(default='', max_length=100)
+    city = models.CharField(default='', max_length=100)
+    #about = models.TextField(default='')
 
     def __str__(self):
         return f'{self.user.username} Profile'
