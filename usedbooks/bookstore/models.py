@@ -8,7 +8,7 @@ class Book(models.Model):
     description = models.CharField(max_length=500, default='')
     price = models.IntegerField(default=0)
     author = models.CharField(max_length=200, default='')
-    author_id = models.ForeignKey(User, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    author_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to="media/profile_pics")
 
     def __str__(self):

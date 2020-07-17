@@ -26,14 +26,10 @@ body{
   font-weight: 300;
   font-family: "Faster One", cursive;
   font-size: 20px;
-  margin-left: 40px;
-  width: 60px;
-  transition: width 1s;
-  transition-timing-function: linear;
-}
+  margin-left: 70px;
+
 .navs:hover {
   background-color: rgb(67, 96, 134);
-  width: 100px;
   color: aliceblue;
   border-radius: 5px;
 }
