@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect,  get_object_or_404
 from .models import Book, Note
 from django.http import HttpResponseRedirect
-from .forms import SellForm, NoteForm
+from .forms import SellForm, NoteForm, BookSearchForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.postgres.search import SearchVector
 
 
 def home(request):
@@ -73,6 +74,35 @@ def upload_note(request):
     return render(request, 'bookstore/upload_note.html',{
         'form': form
         })
+    
+def book_list(request):
+    # if request.method == 'POST':
+    #     form = BookSearchForm(request.post)
+    #     if form.is_valid():
+    #         return return render(request, 'bookstore/buy.html', {'books': Book.objects.all()})
+    form = BookSearchForm(request.POST or None)
+    context = {
+        'form': form,
+    }
+    if request.method == 'POST':
+        # books = Book.objects.all().filter(title__icontains=form['title'].value() or about__icontains=form['title'] or author__icontains=form['title'])
+        # books = Book.objects.all().filter(title__icontains=form['title'].value())
+        # books2 = Book.objects.all().filter(description__icontains=form['title'].value())
+        # books3 = Book.objects.all().filter(author__icontains=form['title'].value())
+        # for i in books2:
+        #     books[i] = books2[i]
+        # for i in books3:
+        #     books[i] = books3[i]
+        books = Book.objects.annotate(search=SearchVector('title', 'author', 'description'),).filter(search__icontains=form['title'].value())
+        context = {
+            # 'title': title,
+            'books': books,
+            'form': form,
+        }
+    return render(request, 'bookstore/booklist.html', context)
+    
+    
+    
 
 # def Book(request):
 #     if request.method == 'POST':

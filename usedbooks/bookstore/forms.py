@@ -11,3 +11,8 @@ class NoteForm(forms.ModelForm):
     class Meta:
         model = Note
         fields = ['topic', 'author', 'pdf']
+
+class BookSearchForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ['title']
