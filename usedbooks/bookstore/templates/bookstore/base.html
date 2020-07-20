@@ -17,8 +17,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'bookstore/main.css' %}">
-
+    <script src="{% static 'bookstore/toggled-search-bar.js' %}"></script>
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
@@ -27,34 +28,37 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="container">
-        <nav class="navbar navbar-expand-md  fixed-top">
-            <a href="#" class="navbar-brand"
-            ><img src="https://cdn.iconscout.com/icon/free/png-256/bookshelf-274-459914.png" alt=""
-            /></a>
-            <button
-                    type="button"
-                    class="navbar-toggler"
-                    data-toggle="collapse"
-                    data-target="#navbarCollapse"
-            >
-          <span class="navbar-toggler-icon"><img
-                  id="hamburger"
-                  src="https://img.icons8.com/officel/16/000000/menu.png"
-          /></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link navs">HOME</a>
-                    <a href="#" class="nav-item nav-link navs">LOGIN</a>
-                    <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">ABOUT</a>
+    <div class="container-fluid">
+        <div class="container">
+            <nav class="navbar navbar-expand-md  fixed-top">
+                <a href="#" class="navbar-brand"
+                ><strong>USIBUY</strong></a>
+                <button
+                        type="button"
+                        class="navbar-toggler"
+                        data-toggle="collapse"
+                        data-target="#navbarCollapse"
+                >
+              <span class="navbar-toggler-icon"><img
+                      id="hamburger"
+                      src="https://img.icons8.com/officel/16/000000/menu.png"
+              /></span></button>
+                <div class="collapse navbar-collapse" id="navbarCollapse" style="position:absolute; right:0;">
+                    <div class="navbar-nav" style="border-right: 1px solid rgb(211,211,211);">
+                        <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">BUY</a>
+                        <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
+                        <a href="{% url 'note_list' %}" class="nav-item nav-link navs" style="margin-right: 40px;">NOTES</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a href="{% url 'login' %}" class="nav-item nav-link navs" style="margin-left: 40px;">SIGN IN</a>
+                        <a href="{% url 'register' %}" class="nav-item nav-link navs">SIGN UP</a>
+                        <a href="{% url 'book_list' %}" class="nav-item nav-link navs"><img src="{% static 'bookstore/images/find.png' %}" height="16px" width="16px"></a>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+    
+        </div>
 
-    </div>
 
 
     <div class="container" id="added-block">

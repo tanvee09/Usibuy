@@ -1,22 +1,21 @@
 body{
-  background-image: url('images/navbg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-
   background-position: fixed;
 }
 
 .navbar {
-  border-radius: 30px;
-  margin: 0 20rem;
+  background-color: rgb(255, 255, 255);
 }
-.navbar-brand img {
-  height: 35px;
-  width: 35px;
+.navbar-brand{
+  margin-left: 40px;
+}
+
+.navbar-nav {
+  
+  float: right;
 }
 
 .navbar-nav a {
-  color: rgb(255, 255, 255);
+  color: rgb(211,211,211);
 }
 #hamburger {
   height: 35px;
@@ -24,14 +23,15 @@ body{
 }
 .navs {
   font-weight: 300;
-  font-family: "Faster One", cursive;
-  font-size: 20px;
-  margin-left: 70px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .navs:hover {
-  background-color: rgb(67, 96, 134);
-  color: aliceblue;
-  border-radius: 5px;
+  /* background-color: rgb(67, 96, 134); */
+  color: #00e6a1;
+  /* border-radius: 5px; */
 }
 
 #deets{
@@ -60,8 +60,6 @@ form{
   }
 
   body {
-    background-image: url("images/bg1.png");
-    background-repeat: no-repeat;
     background-size: 100%;
     overflow-x: hidden;
     background-position: fixed;

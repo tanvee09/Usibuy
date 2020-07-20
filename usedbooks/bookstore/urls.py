@@ -14,7 +14,7 @@ urlpatterns = [
     path('<int:pk>/delete', views.book_delete, name="book-delete"),
     path('user_post/', views.user_posts, name='user_post'),
     path('search/', views.book_list, name='book_list'),
-
+    path('base/', views.base, name='base'),
 ]
 
 if settings.DEBUG:

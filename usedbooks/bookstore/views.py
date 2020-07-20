@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchVector
 
 
+def base(request) :
+    return render(request, 'bookstore/base.html', {'title': 'HOME'})
+
 def home(request):
     return render(request, 'bookstore/landingpage.html', {'title': 'HOME'})
 
