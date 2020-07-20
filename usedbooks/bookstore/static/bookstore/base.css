@@ -1,0 +1,113 @@
+body{
+  background-position: fixed;
+}
+
+.navbar {
+  background-color: rgb(252, 252, 252);
+}
+
+.navbar-brand{
+  margin-left: 40px;
+}
+
+.navbar-nav {
+
+  float: right;
+}
+
+#buy-cards{
+background-color: rgb(249, 249, 249);
+border:0;
+ margin-bottom:20px;
+ height: 420px;
+
+}
+#title-book{
+margin-top:5px;
+}
+
+#Details{
+background-color:white;
+border-radius: 40px;
+padding:7px 30px;
+ box-shadow: inset 0 2px 3px rgba(255,255,255,0.3),
+    inset 0 -2px 3px rgba(0,0,0,0.3),
+    0 1px 1px rgba(255,255,255,0.9);
+
+
+}
+
+.card-img-top{
+ box-shadow: 5px 10px 8px #888888;
+ width:200px;
+ height:270px;
+}
+
+#added-block{
+margin-top:100px;
+}
+
+.navbar-nav a {
+  color: rgb(211, 211, 211);
+}
+#hamburger {
+  height: 35px;
+  width: 35px;
+}
+.card-footer{
+background: transparent;
+  border-top: 0px;
+  display: flex;
+  justify-content: center;
+
+}
+.navs {
+  font-weight: 300;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.navs:hover {
+  /* background-color: rgb(67, 96, 134); */
+  color: #00e6a1;
+  /* border-radius: 5px; */
+}
+
+#deets{
+  margin-top: 200px;
+}
+
+form{
+  margin: 120px 50px ;
+  background-color: rgb(43, 72, 99);
+  padding: 30px;
+  color: white;
+  border: 2px solid black;
+  border-radius: 30px;
+}
+
+#bookcard{
+  margin-top: 300px;
+}
+@media screen and (max-width: 1200px) {
+.card-img-top{
+ box-shadow: 5px 10px 8px #888888;
+ width:170px;
+ height:240px;
+}
+}
+@media screen and (max-width: 770px) {
+  .navbar {
+    margin: 0;
+  }
+  .navs:hover {
+    width: 300px;
+  }
+
+  body {
+    background-size: 100%;
+    overflow-x: hidden;
+    background-position: fixed;
+  }
+}
