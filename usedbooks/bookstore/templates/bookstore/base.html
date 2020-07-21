@@ -1,4 +1,4 @@
-                                                     {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -51,8 +51,8 @@
                     <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
                     <a href="{% url 'note_list' %}" class="nav-item nav-link navs" style="border-right: 1px solid; padding-right: 40px;">NOTES</a>
                     <a href="{% url 'login' %}" class="nav-item nav-link navs" >SIGN IN</a>
-                    <a href="{% url 'register' %}" class="nav-item nav-link navs">SIGN UP</a>
-                    <a href="{% url 'book_list' %}" class="nav-item nav-link navs"><img src="{% static 'bookstore/images/find.png' %}" height="16px" width="16px"></a>
+                    <a href="{% url 'register' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN UP</a>
+                    <form><input type="text" name="search" placeholder="Search.."></form>
                 </div>
             </div>
         </nav>
