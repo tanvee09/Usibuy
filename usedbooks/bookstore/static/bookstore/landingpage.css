@@ -1,0 +1,41 @@
+body{
+overflow-x:hidden;
+}
+#jumbotron{
+background: #00C9FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(45deg, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(45deg , rgba(92,254,157,0.9),60%, rgba(0,201,255,0.6)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background-size: 83% auto;
+background-repeat: no-repeat;
+background-position:right;
+padding-bottom: 2%;
+padding-left:0%;
+padding-right:0%;
+padding-top:6%;
+}
+
+#jumbo_name{
+font-size:950%;;
+font-family: 'Exo 2', sans-serif;
+}
+
+#jumbotron button{
+font-family: 'Exo 2', sans-serif;
+border-radius:50px;
+font-size: 1.3rem;
+padding-left:9%;
+padding-right:9%;
+padding-top:1.5%;
+padding-bottom:1.5%;
+background-color:black;
+margin-left:4%;
+}
+
+#jumbotron p{
+margin-left:3%;
+}
+
+#jumbotron img{
+width:110%;
+height:auto;
+}

@@ -18,7 +18,9 @@
    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'bookstore/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bookstore/landingpage.css' %}">
     <script src="{% static 'bookstore/toggled-search-bar.js' %}"></script>
     {% if title %}
     <title>{{ title }}</title>
@@ -28,8 +30,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="container">
+    <div class="container">
             <nav class="navbar navbar-expand-md  fixed-top">
                 <a href="#" class="navbar-brand"
                 ><strong>USIBUY</strong></a>
@@ -61,13 +62,12 @@
 
 
 
-    <div class="container" id="added-block">
+    <div id="added-block">
         {% block content %}
 
         {% endblock %}
     </div>
 
-</div>
 
 
 
