@@ -1,5 +1,4 @@
-
-{% load static %}
+                                                     {% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -18,9 +17,9 @@
    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'bookstore/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'bookstore/landingpage.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'bookstore/base.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bookstore/landingpage.css'%}">
     <script src="{% static 'bookstore/toggled-search-bar.js' %}"></script>
     {% if title %}
     <title>{{ title }}</title>
@@ -30,7 +29,7 @@
 </head>
 
 <body>
-    <div class="container">
+        <div class="container">
             <nav class="navbar navbar-expand-md  fixed-top">
                 <a href="#" class="navbar-brand"
                 ><strong>USIBUY</strong></a>
@@ -57,7 +56,7 @@
                     </div>
                 </div>
             </nav>
-    
+
         </div>
 
 
@@ -76,4 +75,3 @@
 </body>
 
 </html>
-
