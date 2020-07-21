@@ -29,35 +29,36 @@
 </head>
 
 <body>
-        <div class="container">
-            <nav class="navbar navbar-expand-md  fixed-top">
-                <a href="#" class="navbar-brand"
-                ><strong>USIBUY</strong></a>
-                <button
-                        type="button"
-                        class="navbar-toggler"
-                        data-toggle="collapse"
-                        data-target="#navbarCollapse"
-                >
-              <span class="navbar-toggler-icon"><img
-                      id="hamburger"
-                      src="https://img.icons8.com/officel/16/000000/menu.png"
-              /></span></button>
-                <div class="collapse navbar-collapse" id="navbarCollapse" style="position:absolute; right:0;">
-                    <div class="navbar-nav" style="border-right: 1px solid rgb(211,211,211);">
-                        <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">BUY</a>
-                        <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
-                        <a href="{% url 'note_list' %}" class="nav-item nav-link navs" style="margin-right: 40px;">NOTES</a>
-                    </div>
-                    <div class="navbar-nav">
-                        <a href="{% url 'login' %}" class="nav-item nav-link navs" style="margin-left: 40px;">SIGN IN</a>
-                        <a href="{% url 'register' %}" class="nav-item nav-link navs">SIGN UP</a>
-                        <a href="{% url 'book_list' %}" class="nav-item nav-link navs"><img src="{% static 'bookstore/images/find.png' %}" height="16px" width="16px"></a>
-                    </div>
-                </div>
-            </nav>
+    <div class="container">
+        <nav class="navbar navbar-expand-md  fixed-top">
+            <a href="#" class="navbar-brand"
+            ><strong>USIBUY</strong></a>
+            <button
+                    type="button"
+                    class="navbar-toggler"
+                    data-toggle="collapse"
+                    data-target="#navbarCollapse"
+            >
+          <span class="navbar-toggler-icon"><img
+                  id="hamburger"
+                  src="https://img.icons8.com/officel/16/000000/menu.png"
+          /></span>
+            </button>
 
-        </div>
+            <div class="collapse navbar-collapse" id="navbarCollapse" style="float: right;">
+                <div class="navbar-nav ml-auto">
+                    <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">BUY</a>
+                    <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
+                    <a href="{% url 'note_list' %}" class="nav-item nav-link navs" style="border-right: 1px solid; padding-right: 40px;">NOTES</a>
+                    <a href="{% url 'login' %}" class="nav-item nav-link navs" >SIGN IN</a>
+                    <a href="{% url 'register' %}" class="nav-item nav-link navs">SIGN UP</a>
+                    <a href="{% url 'book_list' %}" class="nav-item nav-link navs"><img src="{% static 'bookstore/images/find.png' %}" height="16px" width="16px"></a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
 
 
 
