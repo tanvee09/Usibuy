@@ -14,7 +14,14 @@ def home(request):
 
 
 def buy(request):
-    return render(request, 'bookstore/buy.html', {'books': Book.objects.all()})
+    context = {}
+    query = ""
+    if request.GET :
+        query = request.GET['q']
+        context['query'] = str(query)
+    books = book_list(query)
+    context['books'] = books
+    return render(request, 'bookstore/buy.html', context)
 
 
 def detail(request, id):
@@ -78,41 +85,11 @@ def upload_note(request):
         'form': form
         })
     
-def book_list(request):
-    # if request.method == 'POST':
-    #     form = BookSearchForm(request.post)
-    #     if form.is_valid():
-    #         return return render(request, 'bookstore/buy.html', {'books': Book.objects.all()})
-    form = BookSearchForm(request.POST or None)
-    context = {
-        'form': form,
-    }
-    if request.method == 'POST':
-        # books = Book.objects.all().filter(title__icontains=form['title'].value() or about__icontains=form['title'] or author__icontains=form['title'])
-        # books = Book.objects.all().filter(title__icontains=form['title'].value())
-        # books2 = Book.objects.all().filter(description__icontains=form['title'].value())
-        # books3 = Book.objects.all().filter(author__icontains=form['title'].value())
-        # for i in books2:
-        #     books[i] = books2[i]
-        # for i in books3:
-        #     books[i] = books3[i]
-        books = Book.objects.annotate(search=SearchVector('title', 'author', 'description'),).filter(search__icontains=form['title'].value())
-        context = {
-            # 'title': title,
-            'books': books,
-            'form': form,
-        }
-    return render(request, 'bookstore/booklist.html', context)
-    
-    
-    
-
-# def Book(request):
-#     if request.method == 'POST':
-#         form = SellForm(request.POST)
-#         if form.is_valid():
-#             return HttpResponseRedirect('bookstore-home')
-#     else:
-#         form = SellForm()
-
-#     return render(request, 'bookstore/sell.html', {'form': form})
+def book_list(query = None):
+    queryset = set([])
+    queries = query.split(" ")
+    for q in queries :
+        books = Book.objects.annotate(search=SearchVector('title', 'author', 'description'),).filter(search__icontains=q)
+        for book in books :
+            queryset.add(book)
+    return list(queryset)

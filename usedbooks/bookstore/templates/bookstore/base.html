@@ -26,6 +26,11 @@
     {% else %}
     <title>UsedBooks</title>
     {% endif %}
+
+    <script type="text/javascript">
+        document.getElementById("id_q").value = "{{query}}";
+    </script>
+
 </head>
 
 <body>
@@ -52,26 +57,16 @@
                     <a href="{% url 'note_list' %}" class="nav-item nav-link navs" style="border-right: 1px solid; padding-right: 40px;">NOTES</a>
                     <a href="{% url 'login' %}" class="nav-item nav-link navs" >SIGN IN</a>
                     <a href="{% url 'register' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN UP</a>
-                    <form><input type="text" name="search" placeholder="Search.."></form>
+                    <form method="get"><input type="text" name="q" id="id_q" placeholder="Search.."></form>
                 </div>
             </div>
         </nav>
-
     </div>
-
-
-
-
     <div id="added-block">
         {% block content %}
 
         {% endblock %}
     </div>
-
-
-
-
-
 
 </body>
 
