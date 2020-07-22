@@ -10,6 +10,14 @@ def base(request) :
     return render(request, 'bookstore/base.html', {'title': 'HOME'})
 
 def home(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     return render(request, 'bookstore/landingpage.html', {'title': 'HOME'})
 
 
@@ -25,12 +33,28 @@ def buy(request):
 
 
 def detail(request, id):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     book_det = Book.objects.get(id=id)
     return render(request, 'bookstore/book_detail.html', {'book_det': book_det})
 
 
 @login_required
 def sell(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     if request.method == 'POST':
         form = SellForm(request.POST)
         if form.is_valid():
@@ -38,12 +62,19 @@ def sell(request):
             return redirect('bookstore-home')
     else:
         form = SellForm()
-
     return render(request, 'bookstore/sell.html', {'form': form})
     # return render(request, 'bookstore/sell.html', {'title': 'SELL BOOKS'})
 
 @login_required
 def update(request, pk, template_name='bookstore/book_form.html'):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     book = get_object_or_404(Book, id=pk)
     form = SellForm(request.POST or None, instance=book)
     if form.is_valid():
@@ -54,14 +85,29 @@ def update(request, pk, template_name='bookstore/book_form.html'):
 
 @login_required
 def book_delete(request, pk, template_name='bookstore/book_confirm_delete.html'):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     book= get_object_or_404(Book, id=pk)
-
     if request.method == 'POST':
         book.delete()
         return redirect('bookstore-home')
     return render(request, template_name, {'object': book})
 
 def user_posts(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     logged_in_user = request.user
     logged_in_user_posts = Book.objects.filter(author=logged_in_user)
     return render(request, 'bookstore/user_post_list.html', {'books': logged_in_user_posts})
@@ -69,11 +115,27 @@ def user_posts(request):
 
 
 def note_list(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     notes = Note.objects.all()
     return render(request,'bookstore/note_list.html',{
         'notes': notes})
 
 def upload_note(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     if request.method == 'POST':
         form = NoteForm(request.POST, request.FILES)
         if form.is_valid():
