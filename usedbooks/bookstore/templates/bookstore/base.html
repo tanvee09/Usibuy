@@ -52,10 +52,16 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse" style="float: right;">
                 <div class="navbar-nav ml-auto">
-                    <form method="get"><input type="text" name="q" id="id_q" placeholder="Search.."></form>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true"
+                          aria-expanded="false"><i class="fa fa-search"></i></a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1" style="padding-left: 10px; padding-right: 10px;">
+                            <form method="get"><input type="text" name="q" id="id_q" placeholder="Search.." style="width: 400px;"></form>
+                        </div>
+                    </li>
                     <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">BUY</a>
                     <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
-                    <div style="border-right: 1px solid; padding-right: 40px;">
+                    <div style="border-right: 1px solid; padding-right: 40px; border-color: rgb(161, 161, 161);">
                         <a href="{% url 'note_list' %}" class="nav-item nav-link navs" >NOTES</a>
                     </div>
                     {% if user.is_authenticated %}
@@ -65,7 +71,6 @@
                         <a href="{% url 'login' %}" class="nav-item nav-link navs" >SIGN IN</a>
                         <a href="{% url 'register' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN UP</a>
 	                {% endif %}
-
                 </div>
             </div>
         </nav>

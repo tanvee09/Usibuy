@@ -2,6 +2,21 @@ body{
 
 }
 
+.fa-search:hover{
+  color:#00e6a1;
+}
+
+.dropdown-toggle::after {
+  border: none!important;
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f002"!important; /* the desired FontAwesome icon */
+  vertical-align: 0; /* to center vertically */
+}
+
+.dropdown-toggle:hover{
+  color: #00e6a1;
+}
+
 .navbar {
   background-color: rgb(252, 252, 252);
 }
@@ -15,7 +30,7 @@ body{
 }
 
 .navbar-nav a {
-  color: rgb(211, 211, 211);
+  color: rgb(161, 161, 161);
 }
 #hamburger {
   height: 35px;
