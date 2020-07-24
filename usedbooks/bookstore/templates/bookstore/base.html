@@ -1,11 +1,11 @@
-                                                     {% load static %}
+{% load static %}                                                     {% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="jquery-1.12.0.min.js"></script>
     <!-- Bootstrap CSS -->
    <link
       rel="stylesheet"
@@ -18,9 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'bookstore/base.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static './bookstore/base.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'bookstore/landingpage.css'%}">
-    <script src="{% static 'bookstore/toggled-search-bar.js' %}"></script>
+    <script type="text/javascript" src="{% static './bookstore/toggled-search-bar.js' %}"></script>
     {% if title %}
     <title>{{ title }}</title>
     {% else %}

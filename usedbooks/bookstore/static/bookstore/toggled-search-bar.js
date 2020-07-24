@@ -1,3 +1,4 @@
+
 $( document ).ready(function() {
 $('[data-toggle=search-form]').click(function() {
     $('.search-form-wrapper').toggleClass('open');
@@ -16,4 +17,16 @@ $('.search-close').click(function(event) {
   $('.search-form-wrapper').removeClass('open');
   $('html').removeClass('search-form-open');
 });
+});
+
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container_l_s');
+
+signUpButton.addEventListener('click', () => {
+    container.classList.add('right-panel-active');
+});
+
+signInButton.addEventListener('click', () => {
+    container.classList.remove('right-panel-active');
 });
