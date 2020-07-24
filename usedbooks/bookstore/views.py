@@ -10,20 +10,51 @@ def base(request) :
     return render(request, 'bookstore/base.html', {'title': 'HOME'})
 
 def home(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     return render(request, 'bookstore/landingpage.html', {'title': 'HOME'})
 
 
 def buy(request):
-    return render(request, 'bookstore/buy.html', {'books': Book.objects.all()})
+    context = {}
+    query = ""
+    if request.GET :
+        query = request.GET['q']
+        context['query'] = str(query)
+    books = book_list(query)
+    context['books'] = books
+    return render(request, 'bookstore/buy.html', context)
 
 
 def detail(request, id):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     book_det = Book.objects.get(id=id)
     return render(request, 'bookstore/book_detail.html', {'book_det': book_det})
 
 
 @login_required
 def sell(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     if request.method == 'POST':
         form = SellForm(request.POST)
         if form.is_valid():
@@ -31,12 +62,19 @@ def sell(request):
             return redirect('bookstore-home')
     else:
         form = SellForm()
-
     return render(request, 'bookstore/sell.html', {'form': form})
     # return render(request, 'bookstore/sell.html', {'title': 'SELL BOOKS'})
 
 @login_required
 def update(request, pk, template_name='bookstore/book_form.html'):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     book = get_object_or_404(Book, id=pk)
     form = SellForm(request.POST or None, instance=book)
     if form.is_valid():
@@ -47,14 +85,29 @@ def update(request, pk, template_name='bookstore/book_form.html'):
 
 @login_required
 def book_delete(request, pk, template_name='bookstore/book_confirm_delete.html'):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     book= get_object_or_404(Book, id=pk)
-
     if request.method == 'POST':
         book.delete()
         return redirect('bookstore-home')
     return render(request, template_name, {'object': book})
 
 def user_posts(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     logged_in_user = request.user
     logged_in_user_posts = Book.objects.filter(author=logged_in_user)
     return render(request, 'bookstore/user_post_list.html', {'books': logged_in_user_posts})
@@ -62,11 +115,27 @@ def user_posts(request):
 
 
 def note_list(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     notes = Note.objects.all()
     return render(request,'bookstore/note_list.html',{
         'notes': notes})
 
 def upload_note(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
     if request.method == 'POST':
         form = NoteForm(request.POST, request.FILES)
         if form.is_valid():
@@ -78,41 +147,11 @@ def upload_note(request):
         'form': form
         })
     
-def book_list(request):
-    # if request.method == 'POST':
-    #     form = BookSearchForm(request.post)
-    #     if form.is_valid():
-    #         return return render(request, 'bookstore/buy.html', {'books': Book.objects.all()})
-    form = BookSearchForm(request.POST or None)
-    context = {
-        'form': form,
-    }
-    if request.method == 'POST':
-        # books = Book.objects.all().filter(title__icontains=form['title'].value() or about__icontains=form['title'] or author__icontains=form['title'])
-        # books = Book.objects.all().filter(title__icontains=form['title'].value())
-        # books2 = Book.objects.all().filter(description__icontains=form['title'].value())
-        # books3 = Book.objects.all().filter(author__icontains=form['title'].value())
-        # for i in books2:
-        #     books[i] = books2[i]
-        # for i in books3:
-        #     books[i] = books3[i]
-        books = Book.objects.annotate(search=SearchVector('title', 'author', 'description'),).filter(search__icontains=form['title'].value())
-        context = {
-            # 'title': title,
-            'books': books,
-            'form': form,
-        }
-    return render(request, 'bookstore/booklist.html', context)
-    
-    
-    
-
-# def Book(request):
-#     if request.method == 'POST':
-#         form = SellForm(request.POST)
-#         if form.is_valid():
-#             return HttpResponseRedirect('bookstore-home')
-#     else:
-#         form = SellForm()
-
-#     return render(request, 'bookstore/sell.html', {'form': form})
+def book_list(query = None):
+    queryset = set([])
+    queries = query.split(" ")
+    for q in queries :
+        books = Book.objects.annotate(search=SearchVector('title', 'author', 'description'),).filter(search__icontains=q)
+        for book in books :
+            queryset.add(book)
+    return list(queryset)
