@@ -2,6 +2,12 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+STREAM_CHOICES = {
+    ('Engineering', 'Engineering'),
+    ('Medical', 'Medical'),
+    ('Commerce', 'Commerce'),
+    ('Humanities', 'Humanities'),
+}
 
 class Book(models.Model):
     title = models.CharField(max_length=200, default='')
@@ -10,6 +16,7 @@ class Book(models.Model):
     author = models.CharField(max_length=200, default='')
     author_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to="media/profile_pics")
+    stream = models.CharField(default='Engineering', choices=STREAM_CHOICES, max_length=15)
 
     def __str__(self):
         return self.title
