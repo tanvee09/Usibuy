@@ -22,16 +22,22 @@
             </div>
         </form>
     </div>
-    <!-- {% for post in posts %}
-        <article class="media content-section">
-            <div class="media-body">
-                <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ post.seller }}</a>
-                    <small class="text-muted">{{ post.date_posted|date:"F j, Y" }}</small>
-                </div>
-                <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-                <p class="article-content">{{ post.description }}</p>
-            </div>
-        </article>
-    {% endfor %} -->
+    <div class="conatiner" >
+		<div class="row">
+			{% for book in books %}
+			<div class="col-md-4 col-lg-3 col-sm-6">
+				<div class = "card" id="buy-cards">
+					<div class="card-body">
+						<img class="card-img-top" src="{{ book.image.url}}">
+						<h5 class="card-title text-center" id="title-book">{{book.title}}</h5>
+
+						</div>
+					<div class="card-footer">
+						<a href="{% url 'book-detail' book.id %}" class="btn" id="Details">MORE DETAILS</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock content %}

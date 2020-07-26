@@ -5,7 +5,6 @@ from .forms import SellForm, NoteForm, BookSearchForm, AdvancedBookSearchForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchVector
 
-COLLEGES = []
 
 def base(request) :
     return render(request, 'bookstore/base.html', {'title': 'HOME'})
@@ -174,3 +173,58 @@ def advancedSearch(request):
         form = AdvancedBookSearchForm()
     context['form'] = form
     return render(request, 'bookstore/booklist.html', context)
+
+def commercebuy(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
+    else:
+        books = Book.objects.all().filter(stream__icontains='Commerce')
+    return render(request, 'bookstore/buy.html', {'books' : books})
+
+
+def humanitiesbuy(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
+    else:
+        books = Book.objects.all().filter(stream__icontains='Humanities')
+    return render(request, 'bookstore/buy.html', {'books' : books})
+
+
+def engineeringbuy(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
+    else:
+        books = Book.objects.all().filter(stream__icontains='Engineering')
+    return render(request, 'bookstore/buy.html', {'books' : books})
+
+
+def medicalbuy(request):
+    if request.GET :
+        context = {}
+        query = request.GET['q']
+        query = str(query)
+        if query != "" :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', context)
+    else:
+        books = Book.objects.all().filter(stream__icontains='Medical')
+    return render(request, 'bookstore/buy.html', {'books' : books})
