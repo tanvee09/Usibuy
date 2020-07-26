@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect,  get_object_or_404
-from .models import Book, Note
+from .models import Book, Note, College
 from django.http import HttpResponseRedirect
 from .forms import SellForm, NoteForm, BookSearchForm, AdvancedBookSearchForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchVector
 
+COLLEGES = []
 
 def base(request) :
     return render(request, 'bookstore/base.html', {'title': 'HOME'})
@@ -58,7 +59,13 @@ def sell(request):
     if request.method == 'POST':
         form = SellForm(request.POST)
         if form.is_valid():
-            form.save()
+            obj = form.save()
+            obj.author_id = request.user
+            obj.college = request.user.profile.college
+            obj.save()
+            if len(College.objects.filter(name = request.user.profile.college)) == 0:
+                college = College(name = request.user.profile.college)
+                college.save()
             return redirect('bookstore-home')
     else:
         form = SellForm()

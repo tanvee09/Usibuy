@@ -1,17 +1,22 @@
 body{
 overflow-x:hidden;
+background: #0f0c29;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 #jumbotron{
-background: #00C9FF;  /* fallback for old browsers */
-background: -webkit-linear-gradient(45deg, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(45deg , rgba(92,254,157,0.9),60%, rgba(0,201,255,0.6)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #D3CCE3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 background-size: 83% auto;
 background-repeat: no-repeat;
 background-position:right;
-padding-bottom: 2%;
+padding-bottom: 1%;
 padding-left:0%;
 padding-right:0%;
-padding-top:6%;
+padding-top:4%;
+margin-bottom:1.5%;
 }
 
 #jumbo_name{
@@ -38,4 +43,33 @@ margin-left:3%;
 #jumbotron img{
 width:110%;
 height:auto;
+}
+#stream_select{
+border-radius:50px;
+background: #D3CCE3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+padding:0%;
+padding-bottom:4%;
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+#stream_select h1{
+font-family: 'Exo 2', sans-serif;
+font-weight:bold;
+}
+
+#stream_select p{
+font-size:1.5rem;
+}
+#stream_select button{
+font-family: 'Exo 2', sans-serif;
+border-radius:50px;
+font-size: 1.3rem;
+padding-left:9%;
+padding-right:9%;
+padding-top:1.5%;
+padding-bottom:1.5%;
+background-color:black;
 }
