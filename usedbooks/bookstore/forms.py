@@ -16,3 +16,8 @@ class BookSearchForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ['title']
+        
+class AdvancedBookSearchForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ['stream']

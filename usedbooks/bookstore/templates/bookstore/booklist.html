@@ -1,30 +1,57 @@
 {% extends "bookstore/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
 
+<div style="margin-top: 60px;">
+</div>
 
-
-	<div class="conatiner" >
-		<div class="row">
-			{% for book in books %}
-			<div class="col-md-4 col-lg-3 col-sm-6">
-				<div class = "card" id="buy-cards">
-					<div class="card-body">
-						<img class="card-img-top" src="{{ book.image.url}}">
-						<h5 class="card-title text-center" id="title-book">{{book.title}}</h5>
-
-						</div>
-					<div class="card-footer">
-						<a href="{% url 'book-detail' book.id %}" class="btn" id="Details">MORE DETAILS</a>
-					</div>
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
- {% endblock %}
-
-<!-- <form method="post" action="">
+<form method="post" action="">
     {% csrf_token %}
     {{form|crispy}}
     <input class="btn btn-primary" type="submit" value="Search" />
-</form> -->
+</form>
+
+<div style="margin-top: 40px;">
+</div>
+
+{% if books %}
+<div class="conatiner" >
+	<div class="row">
+		{% for book in books %}
+		<div class="col-md-4 col-lg-3 col-sm-6">
+			<div class = "card" id="buy-cards">
+				<div class="card-body">
+					<img class="card-img-top" src="{{ book.image.url}}">
+					<h5 class="card-title text-center" id="title-book">{{book.title}}</h5>
+
+					</div>
+				<div class="card-footer">
+					<a href="{% url 'book-detail' book.id %}" class="btn" id="Details">MORE DETAILS</a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% else %}
+
+<div class="container">
+	<div class="row">
+		<div class="card m-auto">
+			<div class="card-body mt-2 mb-2">
+				<h2 class="card-title">
+					No results
+				</h2>
+				<p class="card-text">
+					There were no books matching your search.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endif %}
+
+{% endblock %}
+

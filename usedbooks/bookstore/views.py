@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect,  get_object_or_404
 from .models import Book, Note
 from django.http import HttpResponseRedirect
-from .forms import SellForm, NoteForm, BookSearchForm
+from .forms import SellForm, NoteForm, BookSearchForm, AdvancedBookSearchForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchVector
 
@@ -155,3 +155,15 @@ def book_list(query = None):
         for book in books :
             queryset.add(book)
     return list(queryset)
+
+def advancedSearch(request):
+    context = {}
+    if request.method == 'POST':
+        form = AdvancedBookSearchForm(request.POST)
+        if form.is_valid():
+            books = Book.objects.all().filter(stream__icontains=form['stream'].value())
+            context['books'] = books
+    else:
+        form = AdvancedBookSearchForm()
+    context['form'] = form
+    return render(request, 'bookstore/booklist.html', context)
