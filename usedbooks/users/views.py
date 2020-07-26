@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from bookstore.models import Book
 from django.contrib.auth.decorators import login_required
 # from bookstore.models import Post
 
@@ -32,13 +33,9 @@ def profile(request) :
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
-    
-    context = {
-        'u_form': u_form,
-        'p_form': p_form
-    }
-    # context = {
-    #     'posts': Post.objects.filter(username=user.username)
-    # }
-    # return render(request, 'users/profile.html', context)
+    context = {}
+    context['u_form'] = u_form
+    context['p_form'] = p_form
+    context['books'] = Book.objects.filter(author_id=request.user.profile.user_id)
     return render(request, 'users/profile.html', context)
+    # return render(request, 'users/profile.html', context)
