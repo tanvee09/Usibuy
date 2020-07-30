@@ -170,17 +170,17 @@ def book_list(query = None):
             queryset.add(book)
     return list(queryset)
 
-def advancedSearch(request):
-    context = {}
-    if request.method == 'POST':
-        form = AdvancedBookSearchForm(request.POST)
-        if form.is_valid():
-            books = Book.objects.all().filter(stream__icontains=form['stream'].value())
-            context['books'] = books
-    else:
-        form = AdvancedBookSearchForm()
-    context['form'] = form
-    return render(request, 'bookstore/booklist.html', context)
+# def advancedSearch(request):
+#     context = {}
+#     if request.method == 'POST':
+#         form = AdvancedBookSearchForm(request.POST)
+#         if form.is_valid():
+#             books = Book.objects.all().filter(stream__icontains=form['stream'].value())
+#             context['books'] = books
+#     else:
+#         form = AdvancedBookSearchForm()
+#     context['form'] = form
+#     return render(request, 'bookstore/booklist.html', context)
 
 def commercebuy(request):
     if request.GET :
