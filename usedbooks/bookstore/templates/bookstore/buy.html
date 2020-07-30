@@ -2,12 +2,16 @@
 {% block content %}
 
 <div style="margin-top: 70px;"></div>
+<div class="row justify-content-end">
+	<div class="col-1" id="filter">
+		<a href="{% url 'filter' %}" ><i class="fa fa-filter"></i></a>
+	</div>
 
+</div>
 {% if books %}
 	<div class="conatiner" >
 		<div class="row">
 			{% for book in books %}
-			{% if book.college == request.user.profile.college %}
 			<div class="col-md-4 col-lg-3 col-sm-6">
 				<div class = "card" id="buy-cards">
 					<div class="card-body">
@@ -20,7 +24,6 @@
 					</div>
 				</div>
 			</div>
-			{% endif %}
 			{% endfor %}
 		</div>
 	</div>

@@ -19,6 +19,7 @@ urlpatterns = [
     path('user_post/', views.user_posts, name='user_post'),
     path('search/', views.advancedSearch, name='book_list'),
     path('base/', views.base, name='base'),
+    path('filter/', views.filter, name="filter"),
 ]
 
 if settings.DEBUG:

@@ -4,17 +4,17 @@
 {% block content %}
 
     <div class="container">
+        
 
 
-
-        <form method="POST" enctype="multipart/form-data">
+        <form method="get" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <h1 class="border-bottom mb-4" id="add">ADD BOOK</h1>
+                <h1 class="border-bottom mb-4" id="add">ADD FILTER</h1>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group ">
-                <button id="signin" class="btn btn-primary " type="submit">SAVE</button>
+                <button class="btn btn-primary " type="submit">APPLY</button>
             </div>
         </form>
 

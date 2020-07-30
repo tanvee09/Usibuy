@@ -1,6 +1,11 @@
 from django import forms
 from .models import *
 
+COLLEGES = []
+
+for college in College.objects.all():
+    COLLEGES.append((college.name, college.name))
+
 
 class SellForm(forms.ModelForm):
     class Meta:
@@ -21,3 +26,10 @@ class AdvancedBookSearchForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ['stream']
+
+class FilterForm(forms.Form):
+    college = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=COLLEGES,
+    )

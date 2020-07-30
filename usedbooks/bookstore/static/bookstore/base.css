@@ -269,6 +269,10 @@ font-weight:bold;
     transform: translateX(20%);
 }
 
+#filter{
+color:white;
+font-size:2rem;
+}
  
 
 #bookcard{

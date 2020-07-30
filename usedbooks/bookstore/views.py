@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect,  get_object_or_404
 from .models import Book, Note, College
 from django.http import HttpResponseRedirect
-from .forms import SellForm, NoteForm, BookSearchForm, AdvancedBookSearchForm
+from .forms import SellForm, NoteForm, BookSearchForm, AdvancedBookSearchForm, FilterForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchVector
-
 
 def base(request) :
     return render(request, 'bookstore/base.html', {'title': 'HOME'})
@@ -19,7 +18,6 @@ def home(request):
             context['books'] = books
             return render(request, 'bookstore/buy.html', context)
     return render(request, 'bookstore/landingpage.html', {'title': 'HOME'})
-
 
 def buy(request):
     context = {}
@@ -44,6 +42,16 @@ def detail(request, id):
     book_det = Book.objects.get(id=id)
     return render(request, 'bookstore/book_detail.html', {'book_det': book_det})
 
+def filter(request):
+    if request.GET:
+        form = FilterForm(request.GET)
+        if form.is_valid():
+            colleges = form.cleaned_data.get("college")
+            books = Book.objects.filter(college__in = colleges)
+            return render(request, 'bookstore/buy.html', {'books': books})
+    else:
+        form = FilterForm()
+    return render(request, 'bookstore/filter.html', {'form': form})
 
 @login_required
 def sell(request):
