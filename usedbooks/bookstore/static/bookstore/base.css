@@ -1,5 +1,4 @@
 body{
-
 }
 
 .fa-search:hover{
@@ -89,6 +88,10 @@ background: transparent;
 
 #deets{
   margin-top: 200px;
+}
+
+#white_labels label{
+    color:white;
 }
 
 /* form{
