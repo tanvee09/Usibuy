@@ -49,11 +49,12 @@ border-radius:50px;
 background: #D3CCE3;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-padding:0%;
-padding-bottom:4%;
+padding:1%;
+padding-bottom:3%;
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+width:50px;
 }
 #stream_select h1{
 font-family: 'Exo 2', sans-serif;
