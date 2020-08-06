@@ -47,7 +47,10 @@ def filter(request):
         form = FilterForm(request.GET)
         if form.is_valid():
             colleges = form.cleaned_data.get("college")
-            books = Book.objects.filter(college__in = colleges)
+            if len(colleges) != 0 :
+                books = Book.objects.filter(college__in = colleges)
+            else :
+                books = Book.objects.all()
             return render(request, 'bookstore/buy.html', {'books': books})
     else:
         form = FilterForm()
