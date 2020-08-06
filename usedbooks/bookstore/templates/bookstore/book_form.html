@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-    <div class="container">
+    <div class="container mt-5 text-white">
 
 
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <h1 class="border-bottom mb-4" id="add">ADD BOOK</h1>
+                <h1 class="border-bottom mb-4" id="add">UPDATE BOOK</h1>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group ">

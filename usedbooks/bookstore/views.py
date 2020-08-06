@@ -93,7 +93,7 @@ def update(request, pk, template_name='bookstore/book_form.html'):
     form = SellForm(request.POST or None, instance=book)
     if form.is_valid():
         form.save()
-        return redirect('bookstore-home')
+        return redirect('profile')
     return render(request, template_name, {'form': form})
 
 
@@ -110,7 +110,7 @@ def book_delete(request, pk, template_name='bookstore/book_confirm_delete.html')
     book= get_object_or_404(Book, id=pk)
     if request.method == 'POST':
         book.delete()
-        return redirect('bookstore-home')
+        return redirect('profile')
     return render(request, template_name, {'object': book})
 
 def user_posts(request):

@@ -1,8 +1,8 @@
 {% extends "bookstore/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    </br></br></br></br>
-    <div class="content-section">
+</br>
+    <div class="content-section container text-white mt-5">
         <div class="media">
             <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
             <div class="media-body">
@@ -27,13 +27,14 @@
 			{% for book in books %}
 			<div class="col-md-4 col-lg-3 col-sm-6">
 				<div class = "card" id="buy-cards">
-					<div class="card-body">
+					<div class="card-body text-center">
 						<img class="card-img-top" src="{{ book.image.url}}">
 						<h5 class="card-title text-center" id="title-book">{{book.title}}</h5>
 
 						</div>
-					<div class="card-footer">
-						<a href="{% url 'book-detail' book.id %}" class="btn" id="Details">MORE DETAILS</a>
+					<div class="card-footer justify-content-around">
+						<a href="{% url 'book-update' book.id %}" class="btn btn-success">UPDATE</a>
+						<a href="{% url 'book-delete' book.id %}" class="btn btn-danger">DELETE</a>
 					</div>
 				</div>
 			</div>
