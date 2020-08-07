@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-   <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
@@ -88,43 +88,54 @@
             </div>
         </nav>
     </div>
+
+
     <div id="added-block">
+
             <div id="jumbotron" class="row px-0">
-            <div class="col-6 col-lg-5 m-0 text-center">
-                <img src="{% static 'bookstore/images/books.png' %}">
+                <div class="col-6 col-lg-5 m-0 text-center">
+                    <img src="{% static 'bookstore/images/books.png' %}">
+                </div>
+                <div class="col-6 col-lg-7">
+                    <h1 id="jumbo_name" class=""m-0">USIBUY</h1>
+                    <p class="lead">Buy and sell used books!</p>
+                    <button type="button" class="btn btn-dark">Sign Up</button>
+                </div>
             </div>
-            <div class="col-6 col-lg-7">
-                <h1 id="jumbo_name" class=""m-0">USIBUY</h1>
-                <p class="lead">Buy and sell used books!</p>
-                <button type="button" class="btn btn-dark">Sign Up</button>
-            </div>
-            </div>
+
+
             <div class="row">
+
                 <div class="col-12 col-md-6 justify-content-center row" >
                     <div class="col-8 text-center mb-2" id="stream_select">
                     <h1 class="mb-4">Medical</h1>
                     <a href="{% url 'medical-books' %}"><button type="button" class="btn btn-dark">Explore Books</button></a>
                     </div>
                 </div>
+
                 <div class="col-12 col-md-6 justify-content-center row" >
                     <div class="col-8 text-center mb-2" id="stream_select">
                     <h1 class="mb-4">Engineering</h1>
                     <a href="{% url 'engineering-books' %}"><button type="button" class="btn btn-dark">Explore Books</button></a>
                     </div>
                 </div>
+
                 <div class="col-12 col-md-6 justify-content-center row" >
                     <div class="col-8 text-center mb-2" id="stream_select">
                     <h1 class="mb-4">Commerce</h1>
                     <a href="{% url 'commerce-books' %}"><button type="button" class="btn btn-dark">Explore Books</button></a>
                     </div>
                 </div>
+
                 <div class="col-12 col-md-6 justify-content-center row" >
                     <div class="col-8 text-center mb-2" id="stream_select">
                     <h1 class="mb-4">Humanities</h1>
                     <a href="{% url 'humanities-books' %}"><button type="button" class="btn btn-dark">Explore Books</button></a>
                     </div>
-                </div>s
+                </div>
             </div>
+
+            
     </div>
 
 </body>

@@ -1,8 +1,19 @@
 body{
 }
 
+.btn-dark:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, .06);
+  color: #D3CCE3;
+}
+
+.mb-2:hover {
+  transform: scale(1.01);
+}
+
 .fa-search:hover{
   color:#00e6a1;
+  transform: scale(1.05);
   cursor: pointer;
 }
 
@@ -35,6 +46,7 @@ body{
 .navbar-nav a {
   color: rgb(161, 161, 161);
 }
+
 #hamburger {
   height: 35px;
   width: 35px;
@@ -49,6 +61,7 @@ body{
 .navs:hover {
   /* background-color: rgb(67, 96, 134); */
   color: #00e6a1;
+  transform: scale(1.05);
   /* border-radius: 5px; */
 }
 
