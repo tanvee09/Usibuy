@@ -3,10 +3,9 @@ from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from bookstore.models import Book
 from django.contrib.auth.decorators import login_required
-# from bookstore.models import Post
 
 
-# Create your views here.
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -18,6 +17,7 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request,"users/register.html",{'form': form})
+
 
 
 @login_required
@@ -38,4 +38,3 @@ def profile(request) :
     context['p_form'] = p_form
     context['books'] = Book.objects.filter(author_id=request.user.profile.user_id)
     return render(request, 'users/profile.html', context)
-    # return render(request, 'users/profile.html', context)

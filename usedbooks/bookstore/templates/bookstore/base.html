@@ -31,6 +31,7 @@
 
     <script type="text/javascript">
         document.getElementById("id_q").value = "{{query}}";
+        document.getElementById("searchin").value = "{{ query }}";
     </script>
 
 </head>
@@ -58,7 +59,13 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true"
                           aria-expanded="false"><i class="fa fa-search"></i></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1" style="padding-left: 10px; padding-right: 10px;">
-                            <form method="get"><input type="text" name="q" id="id_q" placeholder="Search.." style="width: 400px;"></form>
+                            <form method="get">
+                                <select id="searchin" name="searchin">
+                                    <option value="books">Search in Books</option>
+                                    <option value="notes">Search in Notes</option>
+                                </select>
+                                <input type="text" name="q" id="id_q" placeholder="Search.." style="width: 400px;">
+                            </form>
                         </div>
                     </li>
                     <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">BUY</a>
