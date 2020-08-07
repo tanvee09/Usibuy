@@ -1,12 +1,30 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from bookstore.models import Book
+from bookstore.models import Book, Note
+from bookstore.views import search_notes_list, book_list
 from django.contrib.auth.decorators import login_required
 
 
 
 def register(request):
+
+    # if request.GET :
+    #     context = {}
+    #     query = str(request.GET['q'])
+    #     searchin = str(request.GET['searchin'])
+    #     context['query'] = query
+    #     context['searchin'] = searchin
+    #     if query != "" :
+    #         if searchin == 'notes' :
+    #             notes = search_notes_list(query)
+    #             context['notes'] = notes
+    #             return render(request,'bookstore/note_list.html',{'notes': notes})
+    #         else :
+    #             books = book_list(query)
+    #             context['books'] = books
+    #             return render(request, 'bookstore/templates/bookstore/buy.html', {'books' : books})
+
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():

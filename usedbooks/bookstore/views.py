@@ -6,59 +6,95 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchVector
 
 
-#   HOME PAGE
+
+
+#------------------------------------HOME PAGE-----------------------------------------
 
 def home(request):
+
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     return render(request, 'bookstore/landingpage.html', {'title': 'HOME'})
 
 
 
-#   BUY PAGE
+
+
+#--------------------------------------BUY PAGE-----------------------------------------
 
 def buy(request):
+    
+    if request.GET :
+        context = {}
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
+        if query != "" :
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     context = {}
     query = ""
-    if request.GET :
-        query = request.GET['q']
-        searchin = request.GET['searchin']
-        context['query'] = str(query)
-        context['searchin'] = str(searchin)
-        if str(searchin) == 'notes' :
-            notes = search_notes_list(query)
-            context['notes'] = notes
-            return render(request,'bookstore/note_list.html',{'notes': notes})
-
     books = book_list(query)
     context['books'] = books
     return render(request, 'bookstore/buy.html', context)
 
 
-#   SHOW DETAILS OF A BOOK
+
+
+
+#--------------------------------SHOW DETAILS OF A BOOK-----------------------------------
 
 def detail(request, id):
+
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     book_det = Book.objects.get(id=id)
     return render(request, 'bookstore/book_detail.html', {'book_det': book_det})
 
 
-#   FILTER BOOKS BY COLLEGE
+
+
+
+#-----------------------------FILTER BOOKS BY COLLEGE--------------------------------------
 
 def filter(request):
+
     if request.GET:
         form = FilterForm(request.GET)
         if form.is_valid():
@@ -73,18 +109,30 @@ def filter(request):
     return render(request, 'bookstore/filter.html', {'form': form})
 
 
-#   UPLOAD BOOKS FOR SALE
+
+
+
+#--------------------------------UPLOAD BOOKS FOR SALE------------------------------------
 
 @login_required
 def sell(request):
+
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     if request.method == 'POST':
         form = SellForm(request.POST)
         if form.is_valid():
@@ -101,18 +149,30 @@ def sell(request):
     return render(request, 'bookstore/sell.html', {'form': form})
 
 
-#   UPDATE DETAILS OF A BOOK LISTED FOR SALE
+
+
+
+#--------------------------------UPDATE DETAILS OF A BOOK LISTED FOR SALE-------------------------------
 
 @login_required
 def update(request, pk, template_name='bookstore/book_form.html'):
+
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     book = get_object_or_404(Book, id=pk)
     form = SellForm(request.POST or None, instance=book)
     if form.is_valid():
@@ -121,18 +181,30 @@ def update(request, pk, template_name='bookstore/book_form.html'):
     return render(request, template_name, {'form': form})
 
 
-#   DELETE A BOOK LISTED FOR SALE
+
+
+
+#----------------------------------DELETE A BOOK LISTED FOR SALE-----------------------------------
 
 @login_required
 def book_delete(request, pk, template_name='bookstore/book_confirm_delete.html'):
+    
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     book= get_object_or_404(Book, id=pk)
     if request.method == 'POST':
         book.delete()
@@ -140,49 +212,85 @@ def book_delete(request, pk, template_name='bookstore/book_confirm_delete.html')
     return render(request, template_name, {'object': book})
 
 
-#   SHOW ALL THE BOOKS LISTED BY USER FOR SALE
+
+
+
+#-------------------------------SHOW ALL THE BOOKS LISTED BY USER FOR SALE------------------------
 
 @login_required
 def user_posts(request):
+    
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     logged_in_user = request.user
     logged_in_user_posts = Book.objects.filter(author=logged_in_user)
     return render(request, 'bookstore/user_post_list.html', {'books': logged_in_user_posts})
 
 
-#   NOTES AVAILABLE FOR DOWNLOAD
+
+
+
+#-------------------------------------NOTES AVAILABLE FOR DOWNLOAD-----------------------------------
 
 def note_list(request):
+
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     notes = Note.objects.all()
     return render(request,'bookstore/note_list.html', {'notes': notes})
 
 
-#   UPLOAD NOTES
+
+
+
+#--------------------------------------------UPLOAD NOTES---------------------------------------------
 
 def upload_note(request):
+    
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
     if request.method == 'POST':
         form = NoteForm(request.POST, request.FILES)
         if form.is_valid():
@@ -196,7 +304,7 @@ def upload_note(request):
 
 
 
-#   RETURNS LIST OF BOOKS FILTERED ON THE BASIS OF SEARCH INPUT
+#------------------------RETURNS LIST OF BOOKS FILTERED ON THE BASIS OF SEARCH INPUT----------------------
 
 def book_list(query = None):
     queryset = set([])
@@ -208,7 +316,10 @@ def book_list(query = None):
     return list(queryset)
 
 
-#   RETURNS LIST OF NOTES FILTERED ON THE BASIS OF SEARCH INPUT
+
+
+
+#---------------------------RETURNS LIST OF NOTES FILTERED ON THE BASIS OF SEARCH INPUT--------------------
 
 def search_notes_list(query = None):
     queryset = set([])
@@ -223,68 +334,106 @@ def search_notes_list(query = None):
 
 
 
-
-
-#   LIST OF COMMERCE BOOKS
+#---------------------------------------------LIST OF COMMERCE BOOKS-------------------------------------------
 
 def commercebuy(request):
+
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
-    else:
-        books = Book.objects.all().filter(stream__icontains='Commerce')
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
+    books = Book.objects.all().filter(stream__icontains='Commerce')
     return render(request, 'bookstore/buy.html', {'books' : books})
 
 
-#   LIST OF HUMANITIES BOOKS
+
+
+
+#------------------------------------LIST OF HUMANITIES BOOKS---------------------------------------
 
 def humanitiesbuy(request):
+    
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
-    else:
-        books = Book.objects.all().filter(stream__icontains='Humanities')
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
+    books = Book.objects.all().filter(stream__icontains='Humanities')
     return render(request, 'bookstore/buy.html', {'books' : books})
 
 
-#   LIST OF ENGINEERING BOOKS
+
+
+
+#-----------------------------------------LIST OF ENGINEERING BOOKS--------------------------------------------
 
 def engineeringbuy(request):
+    
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
-    else:
-        books = Book.objects.all().filter(stream__icontains='Engineering')
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
+    books = Book.objects.all().filter(stream__icontains='Engineering')
     return render(request, 'bookstore/buy.html', {'books' : books})
 
 
-#   LIST OF MEDICAL BOOKS
+
+
+
+#-------------------------------------------LIST OF MEDICAL BOOKS-----------------------------------------------
 
 def medicalbuy(request):
+    
     if request.GET :
         context = {}
-        query = request.GET['q']
-        query = str(query)
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
         if query != "" :
-            books = book_list(query)
-            context['books'] = books
-            return render(request, 'bookstore/buy.html', context)
-    else:
-        books = Book.objects.all().filter(stream__icontains='Medical')
+            if searchin == 'notes' :
+                notes = search_notes_list(query)
+                context['notes'] = notes
+                return render(request,'bookstore/note_list.html',{'notes': notes})
+            else :
+                books = book_list(query)
+                context['books'] = books
+                return render(request, 'bookstore/buy.html', {'books' : books})
+
+    books = Book.objects.all().filter(stream__icontains='Medical')
     return render(request, 'bookstore/buy.html', {'books' : books})
-    

@@ -30,7 +30,8 @@
     {% endif %}
 
     <script type="text/javascript">
-        document.getElementById("id_q").value = "{{query}}";
+        document.getElementById("id_q").value = "{{ query }}";
+        document.getElementById("searchin").value = "{{ query }}";
     </script>
 
 </head>
@@ -54,13 +55,21 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse" style="float: right;">
                 <div class="navbar-nav ml-auto">
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true"
                           aria-expanded="false"><i class="fa fa-search"></i></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1" style="padding-left: 10px; padding-right: 10px;">
-                            <form method="get"><input type="text" name="q" id="id_q" placeholder="Search.." style="width: 400px;"></form>
+                            <form method="get">
+                                <select id="searchin" name="searchin">
+                                    <option value="books">Search in Books</option>
+                                    <option value="notes">Search in Notes</option>
+                                </select>
+                                <input type="text" name="q" id="id_q" placeholder="Search.." style="width: 400px;">
+                            </form>
                         </div>
                     </li>
+                    
                     {% if user.is_authenticated %}
 	                {% else %}
                         <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>

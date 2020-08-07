@@ -30,7 +30,7 @@
     {% endif %}
 
     <script type="text/javascript">
-        document.getElementById("id_q").value = "{{query}}";
+        document.getElementById("id_q").value = "{{ query }}";
         document.getElementById("searchin").value = "{{ query }}";
     </script>
 
@@ -55,6 +55,7 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse" style="float: right;">
                 <div class="navbar-nav ml-auto">
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true"
                           aria-expanded="false"><i class="fa fa-search"></i></a>
@@ -68,6 +69,7 @@
                             </form>
                         </div>
                     </li>
+                    
                     <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">BUY</a>
                     <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
                     <div style="border-right: 1px solid; padding-right: 40px; border-color: rgb(161, 161, 161);">
