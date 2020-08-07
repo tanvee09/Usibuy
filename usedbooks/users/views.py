@@ -7,23 +7,11 @@ from django.contrib.auth.decorators import login_required
 
 
 
-def register(request):
 
-    # if request.GET :
-    #     context = {}
-    #     query = str(request.GET['q'])
-    #     searchin = str(request.GET['searchin'])
-    #     context['query'] = query
-    #     context['searchin'] = searchin
-    #     if query != "" :
-    #         if searchin == 'notes' :
-    #             notes = search_notes_list(query)
-    #             context['notes'] = notes
-    #             return render(request,'bookstore/note_list.html',{'notes': notes})
-    #         else :
-    #             books = book_list(query)
-    #             context['books'] = books
-    #             return render(request, 'bookstore/templates/bookstore/buy.html', {'books' : books})
+
+
+
+def register(request):
 
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -32,9 +20,29 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f'Your Account has now been created! You can now log in.')
             return redirect('login')
+
+    elif request.method == 'GET' and 'q' in request.GET and str(request.GET['q']) != "":
+        context = {}
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
+        if searchin == 'notes' :
+            notes = search_notes_list(query)
+            context['notes'] = notes
+            return render(request,'bookstore/note_list.html',{'notes': notes})
+        else :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', {'books' : books})
+    
     else:
         form = UserRegisterForm()
     return render(request,"users/register.html",{'form': form})
+
+
+
+
 
 
 
@@ -48,9 +56,26 @@ def profile(request) :
             p_form.save()
             messages.success(request, f'Your Account has been updated!')
             return redirect('profile')
+    
+    elif request.method == 'GET' and 'q' in request.GET and str(request.GET['q']) != "":
+        context = {}
+        query = str(request.GET['q'])
+        searchin = str(request.GET['searchin'])
+        context['query'] = query
+        context['searchin'] = searchin
+        if searchin == 'notes' :
+            notes = search_notes_list(query)
+            context['notes'] = notes
+            return render(request,'bookstore/note_list.html',{'notes': notes})
+        else :
+            books = book_list(query)
+            context['books'] = books
+            return render(request, 'bookstore/buy.html', {'books' : books})
+
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
+
     context = {}
     context['u_form'] = u_form
     context['p_form'] = p_form
