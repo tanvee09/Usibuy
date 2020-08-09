@@ -99,7 +99,11 @@
                 <div class="col-6 col-lg-7">
                     <h1 id="jumbo_name" class=""m-0">USIBUY</h1>
                     <p class="lead">Buy and sell used books!</p>
-                    <button type="button" class="btn btn-dark">Sign Up</button>
+                    {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-dark">Sell Books</button>
+                    {% else %}    
+                        <button type="button" class="btn btn-dark">Sign Up</button>
+                    {% endif %}
                 </div>
             </div>
 
