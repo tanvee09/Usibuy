@@ -82,7 +82,6 @@
                         <a href="{% url 'logout' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN OUT</a>
 	                {% else %}
                         <a href="{% url 'login' %}" class="nav-item nav-link navs" >SIGN IN</a>
-                        <a href="{% url 'register' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN UP</a>
 	                {% endif %}
                 </div>
             </div>
@@ -102,7 +101,7 @@
                     {% if user.is_authenticated %}
                         <button type="button" class="btn btn-dark">Sell Books</button>
                     {% else %}    
-                        <button type="button" class="btn btn-dark">Sign Up</button>
+                    <a href="{% url 'register' %}"><button type="button" class="btn btn-dark">Sign Up</button></a>
                     {% endif %}
                 </div>
             </div>
