@@ -134,7 +134,7 @@ def sell(request):
                 return render(request, 'bookstore/buy.html', {'books' : books})
 
     if request.method == 'POST':
-        form = SellForm(request.POST)
+        form = SellForm(request.POST, request.FILES)
         if form.is_valid():
             obj = form.save()
             obj.author_id = request.user

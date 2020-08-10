@@ -7,6 +7,14 @@ body{
   color: #D3CCE3;
 }
 
+#mainlogo {
+height: 40px;
+width: 120px;
+margin:0;
+padding:0;
+border:0;
+}
+
 .mb-2:hover {
   transform: scale(1.01);
 }
@@ -39,9 +47,7 @@ body{
   margin-left: 40px;
 }
 
-.navbar-nav {
 
-}
 
 .navbar-nav a {
   color: rgb(161, 161, 161);

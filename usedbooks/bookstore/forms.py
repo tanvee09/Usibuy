@@ -10,7 +10,7 @@ for college in College.objects.all():
 class SellForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = ['title' , 'description', 'price', 'author', 'image', 'stream']
+        fields = ['title', 'description', 'price', 'author', 'image', 'stream']
 
 class NoteForm(forms.ModelForm):
     class Meta:
