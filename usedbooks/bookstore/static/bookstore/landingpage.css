@@ -17,8 +17,9 @@ margin-bottom:1.5%;
 }
 
 #jumbo_name{
-font-size:950%;;
+font-size:950%;
 font-family: 'Exo 2', sans-serif;
+margin-top:2%;
 }
 
 #jumbotron button{
@@ -70,4 +71,24 @@ padding-right:9%;
 padding-top:1.5%;
 padding-bottom:1.5%;
 background-color:black;
+}
+
+
+
+@media screen and (max-width: 1000px){
+    #jumbo_name{
+    font-size:750%;
+    }
+}
+
+@media screen and (max-width: 790px){
+    #jumbo_name{
+    font-size:430%;
+    margin-top:9%;
+    }
+    #jumbotron img{
+    position:absolute;
+    top:5.5%;
+    left:2%;
+    }
 }
