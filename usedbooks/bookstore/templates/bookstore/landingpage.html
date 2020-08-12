@@ -1,4 +1,4 @@
-{% load static %}                                 
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="jquery-1.12.0.min.js"></script>
     <!-- Bootstrap CSS -->
-   <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -22,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static './bookstore/base.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'bookstore/landingpage.css'%}">
+     <link rel="stylesheet" type="text/css" href="{% static 'bookstore/bookcover.css'%}">
     <script type="text/javascript" src="{% static './bookstore/toggled-search-bar.js' %}"></script>
     {% if title %}
     <title>{{ title }}</title>
@@ -32,114 +34,242 @@
     <script type="text/javascript">
         document.getElementById("id_q").value = "{{ query }}";
         document.getElementById("searchin").value = "{{ query }}";
+
     </script>
 
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-md  fixed-top">
-            <a href="{% url 'bookstore-home' %}" class="navbar-brand"
-            ><img src="../../media/logo.png" alt="" id="mainlogo"></a>
-            <button
-                    type="button"
-                    class="navbar-toggler"
-                    data-toggle="collapse"
-                    data-target="#navbarCollapse"
-            >
+<div class="container">
+    <nav class="navbar navbar-expand-md  fixed-top">
+        <a href="{% url 'bookstore-home' %}" class="navbar-brand"
+        ><img src="../../media/logo.png" alt="" id="mainlogo"></a>
+        <button
+                type="button"
+                class="navbar-toggler"
+                data-toggle="collapse"
+                data-target="#navbarCollapse"
+        >
           <span class="navbar-toggler-icon"><img
                   id="hamburger"
                   src="https://img.icons8.com/officel/16/000000/menu.png"
           /></span>
-            </button>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarCollapse" style="float: right;">
-                <div class="navbar-nav ml-auto">
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true"
-                          aria-expanded="false"><i class="fa fa-search"></i></a>
-                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1" style="padding-left: 10px; padding-right: 10px;">
-                            <form method="get">
-                                <select id="searchin" name="searchin">
-                                    <option value="books">Search in Books</option>
-                                    <option value="notes">Search in Notes</option>
-                                </select>
-                                <input type="text" name="q" id="id_q" placeholder="Search.." style="width: 400px;">
-                            </form>
-                        </div>
-                    </li>
-                    
-                    {% if user.is_authenticated %}
-	                {% else %}
-                        <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
-	                {% endif %}
-                    <div style="border-right: 1px solid; padding-right: 40px; border-color: rgb(161, 161, 161);">
-                        <a href="{% url 'note_list' %}" class="nav-item nav-link navs" >NOTES</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse" style="float: right;">
+            <div class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false"><i class="fa fa-search"></i></a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1"
+                         style="padding-left: 10px; padding-right: 10px;">
+                        <form method="get">
+                            <select id="searchin" name="searchin">
+                                <option value="books">Search in Books</option>
+                                <option value="notes">Search in Notes</option>
+                            </select>
+                            <input type="text" name="q" id="id_q" placeholder="Search.." style="width: 400px;">
+                        </form>
                     </div>
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'profile' %}" class="nav-item nav-link navs" >PROFILE</a>
-                        <a href="{% url 'logout' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN OUT</a>
-	                {% else %}
-                        <a href="{% url 'login' %}" class="nav-item nav-link navs" >SIGN IN</a>
-	                {% endif %}
+                </li>
+
+                {% if user.is_authenticated %}
+                {% else %}
+                <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
+                {% endif %}
+                <div style="border-right: 1px solid; padding-right: 40px; border-color: rgb(161, 161, 161);">
+                    <a href="{% url 'note_list' %}" class="nav-item nav-link navs">NOTES</a>
                 </div>
+                {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="nav-item nav-link navs">PROFILE</a>
+                <a href="{% url 'logout' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN OUT</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="nav-item nav-link navs">SIGN IN</a>
+                {% endif %}
             </div>
-        </nav>
+        </div>
+    </nav>
+</div>
+
+
+<div id="added-block">
+
+    <div id="jumbotron" class="row px-0">
+        <div class="col-6 col-lg-5 m-0 text-center">
+            <img src="{% static 'bookstore/images/books.png' %}">
+        </div>
+        <div class="col-6 col-lg-7">
+            <h1 id="jumbo_name" class="" m-0">USIBUY</h1>
+            <p class="lead">Buy and sell used books!</p>
+            {% if user.is_authenticated %}
+            <button type="button" class="btn btn-dark">Sell Books</button>
+            {% else %}
+            <a href="{% url 'register' %}">
+                <button type="button" class="btn btn-dark">Sign Up</button>
+            </a>
+            {% endif %}
+        </div>
     </div>
 
 
-    <div id="added-block">
-
-            <div id="jumbotron" class="row px-0">
-                <div class="col-6 col-lg-5 m-0 text-center">
-                    <img src="{% static 'bookstore/images/books.png' %}">
-                </div>
-                <div class="col-6 col-lg-7">
-                    <h1 id="jumbo_name" class=""m-0">USIBUY</h1>
-                    <p class="lead">Buy and sell used books!</p>
-                    {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-dark">Sell Books</button>
-                    {% else %}    
-                    <a href="{% url 'register' %}"><button type="button" class="btn btn-dark">Sign Up</button></a>
-                    {% endif %}
-                </div>
-            </div>
+    <div class="fluid-container" id='disp'>
+    <div class="row">
 
 
-            <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-10">
+            <ul class="align">
+                <li>
+                    <figure class='book'>
 
-                <div class="col-12 col-md-6 justify-content-center row" >
-                    <div class="col-8 text-center mb-2" id="stream_select">
-                    <h1 class="mb-4">Medical</h1>
-                    <a href="{% url 'medical-books' %}"><button type="button" class="btn btn-dark">Explore Books</button></a>
-                    </div>
-                </div>
+                        <!-- Front -->
+                        <ul class='hardcover_front'>
+                            <li>
+                                <img src="media/MEDICAL.png" alt="" width="100%" height="100%">
+                            </li>
+                            <li></li>
+                        </ul>
 
-                <div class="col-12 col-md-6 justify-content-center row" >
-                    <div class="col-8 text-center mb-2" id="stream_select">
-                    <h1 class="mb-4">Engineering</h1>
-                    <a href="{% url 'engineering-books' %}"><button type="button" class="btn btn-dark">Explore Books</button></a>
-                    </div>
-                </div>
+                        <!-- Pages -->
+                        <ul class='page'>
+                            <li></li>
+                            <li>
+                                <a href="{% url 'medical-books' %}">  <img src="media/buybooks.png" alt="" width="100%" height="100%"></a>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
 
-                <div class="col-12 col-md-6 justify-content-center row" >
-                    <div class="col-8 text-center mb-2" id="stream_select">
-                    <h1 class="mb-4">Commerce</h1>
-                    <a href="{% url 'commerce-books' %}"><button type="button" class="btn btn-dark">Explore Books</button></a>
-                    </div>
-                </div>
+                        <!-- Back -->
+                        <ul class='hardcover_back'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class='book_spine'>
+                            <li></li>
+                            <li></li>
+                        </ul>
 
-                <div class="col-12 col-md-6 justify-content-center row" >
-                    <div class="col-8 text-center mb-2" id="stream_select">
-                    <h1 class="mb-4">Humanities</h1>
-                    <a href="{% url 'humanities-books' %}"><button type="button" class="btn btn-dark">Explore Books</button></a>
-                    </div>
-                </div>
-            </div>
 
-            
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-10">
+            <ul class="align">
+                <li>
+                    <figure class='book'>
+
+                        <!-- Front -->
+                        <ul class='hardcover_front'>
+                            <li>
+                                <img src="media/ENGINEERING.png" alt="" width="100%" height="100%">
+                            </li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Pages -->
+                        <ul class='page'>
+                            <li></li>
+                            <li>
+                                <a href="{% url 'engineering-books' %}"><img src="media/sellbooks.png" alt="" width="100%" height="100%"></a>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Back -->
+                        <ul class='hardcover_back'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class='book_spine'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-10">
+            <ul class="align">
+                <li>
+                    <figure class='book'>
+
+                        <!-- Front -->
+                        <ul class='hardcover_front'>
+                            <li>
+                                <img src="media/COMMERCE.png" alt="" width="100%" height="100%">
+                            </li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Pages -->
+                        <ul class='page'>
+                            <li></li>
+                            <li>
+                                <a href="{% url 'commerce-books' %}">   <img src="media/buybooks.png" alt="" width="100%" height="100%"></a>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Back -->
+                        <ul class='hardcover_back'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class='book_spine'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-10">
+            <ul class="align">
+                <li>
+                    <figure class='book'>
+
+                        <!-- Front -->
+                        <ul class='hardcover_front'>
+                            <li>
+                                <img src="media/HUMANITIES.png" alt="" width="100%" height="100%">
+                            </li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Pages -->
+                        <ul class='page'>
+                            <li></li>
+                            <li>
+                                <a href="{% url 'humanities-books' %}">  <img src="media/sellbooks.png" alt="" width="100%" height="100%"></a>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Back -->
+                        <ul class='hardcover_back'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class='book_spine'>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+
+        </div>
     </div>
+</div>
+
+
+</div>
 
 </body>
 
