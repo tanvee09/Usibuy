@@ -3,9 +3,6 @@ background: url("images/paperbg.png");
 overflow-x: hidden;
 }
 
-#disp{
-margin: 0 50px;
-}
 #jumbotron{
 background: linear-gradient(#26de9f,#00d4ff);
 
@@ -74,9 +71,3 @@ padding-top:1.5%;
 padding-bottom:1.5%;
 background-color:black;
 }
-
-@media only screen and (max-width: 800px) {
-#disp{
-margin: 0 ;
-}
-  }
