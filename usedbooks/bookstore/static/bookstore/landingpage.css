@@ -1,6 +1,7 @@
 body{
 background: url("images/paperbg.png");
 overflow-x: hidden;
+overflow-y: hidden;
 }
 
 #jumbotron{
@@ -19,6 +20,7 @@ margin-bottom:1.5%;
 #jumbo_name{
 font-size:950%;;
 font-family: 'Exo 2', sans-serif;
+
 }
 
 #jumbotron button{
@@ -56,6 +58,7 @@ width:50px;
 #stream_select h1{
 font-family: 'Exo 2', sans-serif;
 font-weight:bold;
+
 }
 
 #stream_select p{
@@ -70,4 +73,34 @@ padding-right:9%;
 padding-top:1.5%;
 padding-bottom:1.5%;
 background-color:black;
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+    overflow-y:visible;
+  }
+  #jumbo_name{
+font-size:750%;;
+font-family: 'Exo 2', sans-serif;
+
+}
+
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  #jumbo_name{
+  margin-top:50px;
+font-size:400%;;
+font-family: 'Exo 2', sans-serif;
+
+}
+#jumbotron img{
+width:230px;
+height:150px;
+margin-top:50px;
+}
+
+
 }

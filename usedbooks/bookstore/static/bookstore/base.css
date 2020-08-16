@@ -1,4 +1,5 @@
 body{
+
 }
 
 .btn-dark:hover {
@@ -40,17 +41,24 @@ border:0;
 }
 
 .navbar {
-  background-color: rgb(252, 252, 252);
+  background-color: rgb(250, 250, 250);
+  z-index:1;
 }
 
 .navbar-brand{
   margin-left: 40px;
 }
 
-
+.form-group{
+blur: 30px;
+X and Y: 18px;
+opacity: 100%
+color: #D1D9E6;
+}
 
 .navbar-nav a {
   color: rgb(161, 161, 161);
+  z-index:1;
 }
 
 #hamburger {
@@ -63,6 +71,7 @@ border:0;
   font-family: 'Titillium Web', sans-serif;
   font-size: 16px;
   margin-left: 40px;
+
 }
 .navs:hover {
   /* background-color: rgb(67, 96, 134); */
