@@ -81,7 +81,29 @@
 					<form method="POST">
 						<h1 class="mb-4">Sign Up</h1>
 						{% csrf_token %}
-						{{ form|crispy }}
+						<div>
+                            <h6><strong>Username*</strong></h6> 
+                            {{formUser.username}} <br>
+                        </div>
+                        <div>
+                            <h6><strong>Email*</strong></h6> 
+                            {{formUser.email}} <br>
+                        </div>
+                        <div>
+                            <h6><strong>Password*</strong></h6> 
+                            {{formUser.password1}} <br>
+                            {{formUser.password1.errors}} <br>
+                        </div>
+                        <div>
+                            <h6><strong>Password Confirmation*</strong></h6> 
+                            {{formUser.password2}}
+                            {{formUser.password2.errors}}
+                        </div>
+                        <div>
+                            <h6><strong>College*</strong></h6> 
+                            {{formCollege.college}} <br>
+                        </div>
+                        <br>
 						<button>Sign Up</button>
 					</form>
 				</div>
