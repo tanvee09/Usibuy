@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, CollegeRegistration
 from bookstore.models import Book, Note
 from bookstore.views import search_notes_list, book_list
 from django.contrib.auth.decorators import login_required
@@ -14,10 +14,12 @@ from django.contrib.auth.decorators import login_required
 def register(request):
 
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
+        formUser = UserRegisterForm(request.POST)
+        formCollege = CollegeRegistration(request.POST)
+        if formUser.is_valid() and formCollege.is_valid():
+            formUser.save()
+            formCollege.save()
+            username = formUser.cleaned_data.get('username')
             messages.success(request, f'Your Account has now been created! You can now log in.')
             return redirect('login')
 
@@ -37,8 +39,9 @@ def register(request):
             return render(request, 'bookstore/buy.html', {'books' : books})
     
     else:
-        form = UserRegisterForm()
-    return render(request,"users/register.html",{'form': form})
+        formUser = UserRegisterForm()
+        formCollege = CollegeRegistration()
+    return render(request,"users/register.html",{'formUser': formUser, 'formCollege': formCollege})
 
 
 

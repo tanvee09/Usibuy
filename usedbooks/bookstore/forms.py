@@ -6,6 +6,7 @@ COLLEGES = []
 for college in College.objects.all():
     COLLEGES.append((college.name, college.name))
 
+COLLEGES = sorted(COLLEGES)
 
 class SellForm(forms.ModelForm):
     class Meta:

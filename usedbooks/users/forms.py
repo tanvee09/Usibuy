@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
+
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     class Meta:
@@ -22,3 +23,8 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['image','college','city','state','phone']
 
+
+class CollegeRegistration(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['college']
