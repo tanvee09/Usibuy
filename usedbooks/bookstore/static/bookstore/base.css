@@ -1,5 +1,8 @@
 body{
 
+background: url("images/paperbg.png");
+overflow-x: hidden;
+
 }
 
 .btn-dark:hover {
@@ -87,6 +90,12 @@ border:0;
  height: 420px;
 
 }
+
+#detailimage{
+height:300px;
+width: 200px;
+}
+
 #title-book{
 margin-top:5px;
 }
@@ -143,17 +152,50 @@ background: transparent;
     margin: 20px 0 30px;
 }
 
-#login_signup form {
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+form{
+    margin-top:100px;
+    background-color: #558074;
     padding: 0 50px;
     height: 100%;
-    text-align: center;
+     box-shadow: inset 3px 3px 7px , inset -3px -3px 7px #000000;
+    i {
+        text-shadow: 1px 1px 1px #d6e1ef99, 0 0 0 #000, 1px 1px 1px #000000;
+    }
+    border-radius: 20px;
+
+
 }
 
+#deetsinner{
+margin: 50px;
+}
+#deetscontainer{
+background-color: #559886;
+box-shadow: inset 3px 3px 7px , inset -3px -3px 7px #000000;
+    i {
+        text-shadow: 1px 1px 1px #d6e1ef99, 0 0 0 #000, 1px 1px 1px #000000;
+    }
+    border-radius: 20px;
+
+ margin-top:100px;
+}
+#notescontainer{
+background-color: #559886;
+box-shadow: inset 3px 3px 7px , inset -3px -3px 7px #000000;
+    i {
+        text-shadow: 1px 1px 1px #d6e1ef99, 0 0 0 #000, 1px 1px 1px #000000;
+    }
+    border-radius: 20px;
+
+ margin-top:100px;
+}
+.form-group{
+margin:20px 0;
+}
+
+#signin{
+padding: 6px 30px;
+}
 #login_signup button {
     border-radius: 20px;
     border: 1px solid cyan;

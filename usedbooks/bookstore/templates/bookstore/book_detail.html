@@ -3,19 +3,19 @@
 {% extends "bookstore/base.html" %}
 {% block content %}
 
-<div class="container" id="deets">
-    <div class="row">
+<div class="container" id="deetscontainer">
+    <div class="row" id="deetsinner">
         <div class="col-md-4">
             <h1>TITLE: {{book_det.title}}</h1>
-    <img src="{{book_det.image.url}}" alt="">
+    <img id= "detailimage" src="{{book_det.image.url}}" alt="">
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" >
             <h3>DESCRIPTION: {{book_det.description}}</h3>
             <h3>AUTHOR: {{book_det.author}}</h3>
             <h3>PRICE: {{book_det.price}}</h3>
             <h3>STREAM: {{book_det.stream}}</h3>
-            <button class="btn btn-success"><a href=""> CONTACT SELLER </a></button>
+            <button class="btn btn-dark"><a href=""> CONTACT SELLER </a></button>
 
         </div>
 

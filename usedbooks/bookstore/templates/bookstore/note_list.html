@@ -1,33 +1,33 @@
 {% extends "bookstore/base.html" %}
 {% block content %}
 
-		<div class="container">
-			<div class = "mt-5">
-		<h1 class="text-white">Notes</h1>
-		<p><a href="{% url 'upload_note' %}" class="btn btn-primary">Upload Notes</a></p>
-		<table class="table text-white">
-			<thead>
-				<tr>
-					<th>Topic</th>
-					<th>Author</th>
-					<th>Download</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for note in notes %}
-				<tr>
-					<td>{{ note.topic }}</td>
-					<td>{{ note.author }}</td>
-					<td>
-						<a href="{{ note.pdf.url }}" class="btn btn-primary btn-sm">
-							Download PDF
-						</a>
-					</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-			</div>
-		</div>
+<div class="container" id="notescontainer">
+    <div class="mt-5">
+        <h1 class="text-white">Notes</h1>
+        <p><a href="{% url 'upload_note' %}" class="btn btn-dark">Upload Notes</a></p>
+        <table class="table text-white">
+            <thead>
+            <tr>
+                <th>Topic</th>
+                <th>Author</th>
+                <th>Download</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for note in notes %}
+            <tr>
+                <td>{{ note.topic }}</td>
+                <td>{{ note.author }}</td>
+                <td>
+                    <a href="{{ note.pdf.url }}" class="btn btn-dark btn-sm">
+                        Download PDF
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 {% endblock %}
