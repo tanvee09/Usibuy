@@ -196,7 +196,7 @@ margin:20px 0;
 #signin{
 padding: 6px 30px;
 }
-#login_signup button {
+#login_signup .ghost {
     border-radius: 20px;
     border: 1px solid cyan;
     background-color: cyan;
@@ -208,7 +208,13 @@ padding: 6px 30px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
 }
-
+#form_submit{
+    margin-top:10%;
+    padding:2%;
+    margin-left:36%;
+    border-radius:50px;
+    font-size:1.2rem;
+}
 #login_signup button:active {
     transform: scale(0.95);
 }

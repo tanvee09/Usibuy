@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'bookstore.apps.BookstoreConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
-    'gdstorage',
 ]
 
 MIDDLEWARE = [

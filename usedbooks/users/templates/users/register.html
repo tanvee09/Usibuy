@@ -78,7 +78,7 @@
     <div id="added-block">
 			<div class="container mt-5 right-panel-active" id="container_l_s">
 				<div class="form-container sign-up-container" id="login_signup">
-					<form method="POST">
+					<form method="POST" class="m-0">
 						<h1 class="mb-4">Sign Up</h1>
 						{% csrf_token %}
 						<div>
@@ -99,12 +99,12 @@
                             {{formUser.password2}}
                             {{formUser.password2.errors}}
                         </div>
-                        <div>
+                        <div class="mb-0">
                             <h6><strong>College*</strong></h6> 
                             {{formCollege.college}} <br>
                         </div>
                         <br>
-						<button>Sign Up</button>
+						<button type="submit" class="btn btn-dark px-4 mt-0" id="form_submit">Sign Up</button>
 					</form>
 				</div>
 				<div class="overlay-container" id="login_signup">
@@ -114,12 +114,7 @@
 							<p>
 								To keep connected with us please login with your personal info
 							</p>
-							<button class="ghost" id="signIn">Sign In</button>
-						</div>
-						<div class="overlay-panel overlay-right">
-							<h1>Hello, Friend!</h1>
-							<p>Enter your personal details and start journey with us</p>
-							<button class="ghost" id="signUp">Sign Up</button>
+							<a href="{% url 'login' %}"><button class="ghost" id="signIn">Sign In</button></a>
 						</div>
 					</div>
 				</div>

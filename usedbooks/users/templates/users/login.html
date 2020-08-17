@@ -75,37 +75,23 @@
             </div>
         </nav>
     </div>
-    <div id="added-block">
+    <div id="added-block" >
 			<div class="container mt-5" id="container_l_s">
-				<div class="form-container sign-up-container" id="login_signup">
-					<form method="POST">
-						<h1 class="mb-4">Sign Up</h1>
-						{% csrf_token %}
-						{{ form|crispy }}
-						<button>Sign Up</button>
-					</form>
-				</div>
 				<div class="form-container sign-in-container" id="login_signup">
-					<form method="POST">
-						<h1 class="mb-4">Sign In</h1>
+					<form method="POST" class="m-0 pt-5">
+						<h1 class="mb-4 pt-5">Sign In</h1>
 						{% csrf_token %}
 						{{ form|crispy }}
-						<button>Sign In</button>
+						<button type="submit" class="btn btn-dark px-4" id="form_submit">Sign In</button>
 					</form>
 				</div>
 				<div class="overlay-container" id="login_signup">
 					<div class="overlay">
-						<div class="overlay-panel overlay-left">
-							<h1>Welcome Back!</h1>
-							<p>
-								To keep connected with us please login with your personal info
-							</p>
-							<button class="ghost" id="signIn">Sign In</button>
-						</div>
+
 						<div class="overlay-panel overlay-right">
 							<h1>Hello, Friend!</h1>
 							<p>Enter your personal details and start journey with us</p>
-							<button class="ghost" id="signUp">Sign Up</button>
+                            <a href="{% url 'register' %}"><button class="ghost" id="signUp">Sign Up</button></a>
 						</div>
 					</div>
 				</div>
