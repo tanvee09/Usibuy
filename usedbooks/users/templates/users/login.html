@@ -1,5 +1,5 @@
 {% load crispy_forms_tags %}
-{% load static %}    
+{% load static %}
 
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-md  fixed-top">
             <a href="{% url 'bookstore-home' %}" class="navbar-brand"
-            ><strong>USIBUY</strong></a>
+            ><img src="../../media/logo.png" alt="" id="mainlogo"></a>
             <button
                     type="button"
                     class="navbar-toggler"
@@ -57,8 +57,8 @@
 
             <div class="collapse navbar-collapse" id="navbarCollapse" style="float: right;">
                 <div class="navbar-nav ml-auto">
-                    
-                                       
+
+
                     <a href="{% url 'bookstore-buy' %}" class="nav-item nav-link navs">BUY</a>
                     <a href="{% url 'bookstore-sell' %}" class="nav-item nav-link navs">SELL</a>
                     <div style="border-right: 1px solid; padding-right: 40px; border-color: rgb(161, 161, 161);">
@@ -99,6 +99,6 @@
 		</div>
 
 	</body>
-	
+
 	</html>
 
