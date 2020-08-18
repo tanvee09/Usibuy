@@ -91,9 +91,25 @@ border:0;
 
 }
 
+#bookinfo{
+margin-top: 20px;
+color:white;
+font-family: 'Baloo Tamma 2', cursive;
+-webkit-box-shadow: 10px 7px 42px 4px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 7px 42px 4px rgba(0,0,0,0.75);
+box-shadow: 10px 7px 42px 4px rgba(0,0,0,0.75);
+margin:20px;
+padding:10px;
+}
+
 #detailimage{
 height:300px;
 width: 200px;
+-webkit-box-shadow: 10px 7px 42px 4px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 7px 42px 4px rgba(0,0,0,0.75);
+box-shadow: 10px 7px 42px 4px rgba(0,0,0,0.75);
+margin:30px;
+
 }
 
 #title-book{
@@ -131,14 +147,7 @@ background: transparent;
     color:white;
 }
 
-/* form{
-  margin: 120px 50px ;
-  background-color: rgb(43, 72, 99);
-  padding: 30px;
-  color: white;
-  border: 2px solid black;
-  border-radius: 30px;
-}*/
+
 #login_signup h1 {
     font-weight: bold;
     margin: 0;

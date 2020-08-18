@@ -6,11 +6,12 @@
 <div class="container" id="deetscontainer">
     <div class="row" id="deetsinner">
         <div class="col-md-4">
-            <h1>TITLE: {{book_det.title}}</h1>
+
     <img id= "detailimage" src="{{book_det.image.url}}" alt="">
 
         </div>
-        <div class="col-md-6" >
+        <div class="col-md-6" id="bookinfo" >
+            <h2>TITLE: {{book_det.title}}</h2>
             <h3>DESCRIPTION: {{book_det.description}}</h3>
             <h3>AUTHOR: {{book_det.author}}</h3>
             <h3>PRICE: {{book_det.price}}</h3>

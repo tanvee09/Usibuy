@@ -83,6 +83,7 @@ background-color:black;
 @media only screen and (max-width: 1000px) {
   body {
     overflow-y:visible;
+    overflow-x: hidden;
   }
   #jumbo_name{
 font-size:550%;
@@ -95,6 +96,10 @@ margin-top:50px;
 
 
 @media only screen and (max-width: 600px) {
+ body {
+
+    overflow-x: hidden;
+  }
 
   #jumbo_name{
   margin-top:50px;
@@ -107,6 +112,13 @@ width:230px;
 height:150px;
 margin-top:50px;
 }
+
+#jumbotron{
+
+
+background-size: 80% auto;
+}
+
 
 
 }

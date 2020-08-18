@@ -4,18 +4,19 @@
 
     <div class="container" id="notescontainer">
         <div class="mt-5 p-5 row">
-            <div class="col-md-6 text-center">
+            <div class="col-md-5 text-center">
+                <div class="media">
+                <img class="rounded-circle account-img" src="{{ user_s.profile.image.url }}">
+                </div>
+            </div>
+            <div class="col-md-5 text-center" id="bookinfo">
                 <h1>Seller Details</h1>
                 <h3>Username : {{user_s.username}}</h3>
                 <h3>Email : {{user_s.email}}</h3>
                 <h3>College : {{user_s.profile.college}}</h3>
                 <h3>Phone no. : {{user_s.profile.phone}}</h3>
             </div>
-            <div class="col-md-6 text-center">
-                <div class="media">
-                <img class="rounded-circle account-img" src="{{ user_s.profile.image.url }}">
-                </div>
-            </div>
+
         </div>
     </div>
 
