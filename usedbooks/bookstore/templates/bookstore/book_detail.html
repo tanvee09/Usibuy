@@ -15,7 +15,7 @@
             <h3>AUTHOR: {{book_det.author}}</h3>
             <h3>PRICE: {{book_det.price}}</h3>
             <h3>STREAM: {{book_det.stream}}</h3>
-            <button class="btn btn-dark"><a href=""> CONTACT SELLER </a></button>
+            <button class="btn btn-dark"><a href="{% url 'contact_seller' book_det.author_id.id %}"> CONTACT SELLER </a></button>
 
         </div>
 

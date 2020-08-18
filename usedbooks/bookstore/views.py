@@ -4,8 +4,8 @@ from django.http import HttpResponseRedirect
 from .forms import SellForm, NoteForm, BookSearchForm, AdvancedBookSearchForm, FilterForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchVector
-
-
+from users.models import Profile
+from django.contrib.auth.models import User
 
 
 #------------------------------------HOME PAGE-----------------------------------------
@@ -437,3 +437,9 @@ def medicalbuy(request):
 
     books = Book.objects.all().filter(stream__icontains='Medical')
     return render(request, 'bookstore/buy.html', {'books' : books})
+
+#-------------------------------------------CONTACT SELLER-----------------------------------------------
+
+def contact(request, id):
+    user_s = User.objects.get(id=id)
+    return render(request, 'bookstore/contact.html',{'user_s' : user_s})

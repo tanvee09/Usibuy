@@ -18,6 +18,7 @@ urlpatterns = [
     path('<int:pk>/delete', views.book_delete, name="book-delete"),
     path('user_post/', views.user_posts, name='user_post'),
     path('filter/', views.filter, name="filter"),
+    path('<int:id>/contact', views.contact, name="contact_seller")
 ]
 
 if settings.DEBUG:
