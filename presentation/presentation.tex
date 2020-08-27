@@ -1,80 +1,199 @@
-\documentclass[14pt]{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MUW Presentation
+% LaTeX Template
+% Version 1.0 (27/12/2016)
+%
+% License:
+% CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Created by:
+% Nicolas Ballarini, CeMSIIS, Medical University of Vienna
+% nicoballarini@gmail.com
+% http://statistics.msi.meduniwien.ac.at/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title[USED BOOKS]{Usibuy}
-\subtitle{App for Buying and Selling Used Books}
-\author[Team 14]{Rishika Agarwal, Vidhi Shah, Tanvee Balhara}
-\date{June 2020}
+\documentclass[10pt]{beamer} % Change 10pt to make fonts of a different size
+\mode<presentation>
 
-\usetheme{Madrid}
-\usecolortheme{beaver}
+\usetheme{MUW}
+\usecolortheme{MUW}
+\setbeamertemplate{navigation symbols}{} 
+\setbeamertemplate{caption}[numbered]
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
 \usepackage{graphicx}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FONTS
+%\usefonttheme{serif}  % Uncomment for all serif fonts
+%% Comment the following two lines for sans serif fonts in titles
+\setbeamerfont{frametitle}{family=\fontfamily{cmr}}
+\setbeamerfont{title}{family=\fontfamily{cmr}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Presentation Info
+\title[USIBUY]{\textbf{USIBUY}}
+\institute{Web App for Buying and Selling Used Books}
+\author[Team 14]{Rishika Agarwal, Vidhi Shah, Tanvee Balhara}
+
+\date{June - August 2020}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FOOTLINE
+%% Comment/Uncomment the following blocks to modify the footline
+%% content in the body slides. 
+
+
+%% Option A: Title and institute
+%\footlineA
+%% Option B: Author and institute
+%\footlineB
+%% Option C: Title, Author and institute
+\footlineC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use this block for a blue title slide with modified footline
+{\titlepageBlue
 \begin{frame}
-    \titlepage
+  \titlepage
 \end{frame}
+}
 
-\begin{frame}
-    \frametitle{Overview}
-    Our web app is a platform for college students to buy and sell used books that will help them save money on buying new books.
-    \begin{figure}
-        \includegraphics[scale=0.5]{books.jpg}
-    \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use this block for a white title slide with modified footline
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Section 1}
+{\sectionheaderWhite %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{What is this project about?}
 \end{frame}
+}
 
-\begin{frame}
-    \frametitle{Technology Stack}
-    \begin{description}
-        \item<1-> [Front-end] HTML, CSS, JavaScript
-        \item<2-> [Back-end] Django
-    \end{description}
+\section{Section 1}
+{\sectionheaderWhite %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{Our motive behind this project}{}
 \end{frame}
+}
 
-\begin{frame}
-    \frametitle{Components of the Web App}
+\section{Section 1}
+{\sectionheaderSkin %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{TECHNOLOGY STACK}}{
+    
     \begin{itemize}
-        \item<1->  Account for individual users
-        \item<2->  Users can do the following :
-            \begin{itemize}
-                \item<3->  List used books for sale
-                \item<4->  Buy used books
-            \end{itemize}
-        \item<5->  PDF section for notes
+         \item Front-end: HTML, CSS, JavaScript  
+         \item Back-end: Django framework
+         \item Database: PostgreSQL  
     \end{itemize}
+}
+\end{frame}
+}
+
+
+\section{Section 1}
+{\sectionheaderWhite %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{FEATURES}}{}
+\end{frame}
+}
+
+
+\section{Section 1}
+{\sectionheaderSkin %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{BUY BOOKS}}{
+    
+    \begin{itemize}
+         \item Filter 
+         \item Search
+         \item Details of the Book
+         \item Details of the Seller
+    \end{itemize}
+}
+\end{frame}
+}
+
+\section{Section 1}
+{\sectionheaderSkin %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{SELL BOOKS}}{
+    
+    \begin{itemize}
+         \item List used books 
+         \item Login Required
+    \end{itemize}
+}
+\end{frame}
+}
+
+\section{Section 1}
+{\sectionheaderSkin %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{NOTES}}{
+    \begin{itemize}
+         \item Download notes
+         \item Upload notes
+    \end{itemize}
+}
+\end{frame}
+}
+
+\section{Section 1}
+{\sectionheaderSkin %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{USER PROFILE}}{
+    \begin{itemize}
+         \item Details of the user
+         \item Update and delete listed books
+    \end{itemize}
+}
+\end{frame}
+}
+
+\section{Section 1}
+{\sectionheaderSkin %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{LEARNINGS}}{
+    \begin{itemize}
+         \item Teamwork
+         \item Version Control
+         \item Back-end Development
+         \item LaTeX
+    \end{itemize}
+}
+\end{frame}
+}
+
+\section{Section 1}
+{\sectionheaderSkin %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{CHALLENGES}}{
+    \begin{itemize}
+         \item Deciding the UI
+         \item Working with the database
+         \item Managing images
+         \item Making web page responsive
+    \end{itemize}
+}
+\end{frame}
+}
+
+
+\begin{frame}{
+    \vspace{1.5cm}
+    \begin{figure}
+        \includegraphics[scale=0.5]{Images/stats.png}
+    \end{figure}
+}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Status}
-        \begin{enumerate}
-            \item<1-> Created templates for all the pages
-            \item<2-> Created database of users
-            \item<3-> Created database of books
-            \item<4-> Created section for pdf of notes
-        \end{enumerate}
+\section{Section 1}
+{\sectionheaderWhite %Enclose the frame with {} and add this command for white background in section header
+\begin{frame}{\textbf{FUTURE SCOPE}}{}
 \end{frame}
+}
 
-\begin{frame}
-    \frametitle{Difficulties Faced}
-    \begin{enumerate}
-        \item<1-> Deciding the tech stack to be used
-        \item<2-> Difficulty in making the web pages responsive
-        \item<3-> Errors while altering the database
-        \item<4-> Adding filter for listed books
-        \item<5-> Making it college specific
-    \end{enumerate}
-\end{frame}
 
-\begin{frame}
-    \frametitle{Learnings}
-    \begin{enumerate}
-        \item<1-> Used git extensively
-        \item<2-> Learnt Django framework
-        \item<3-> Learnt how to work in a team
-        \item<4-> How to modify web pages and add animations
-        \item<5-> How to add downloadable pdf files
-    \end{enumerate}
-\end{frame}
+
 
 \end{document}
