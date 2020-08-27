@@ -103,10 +103,10 @@
         </div>
         <div class="col-6 col-lg-7">
             <h1 id="jumbo_name" class="" m-0">USIBUY</h1>
-            <p class="lead">Buy and sell used books!</p>
+
             {% if user.is_authenticated %}
             <a href="{% url 'bookstore-sell' %}"
-            <button type="button" class="btn btn-dark"> Sell Books</button>
+            <button type="button" id= "mainbtn" class="btn">SELL OLD BOOKS</button>
             </a>
             {% else %}
             <a href="{% url 'register' %}">

@@ -94,6 +94,14 @@ margin-top:50px;
 
 }
 
+#mainbtn{
+color: white;
+padding: 10px 30px;
+background: black;
+border-radius: 20px;
+font-size: 20px;
+
+}
 
 @media only screen and (max-width: 600px) {
  body {

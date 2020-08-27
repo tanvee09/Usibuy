@@ -275,6 +275,11 @@ font-weight:bold;
     width: 50%;
 }
 
+.signupform{
+margin-top: 80px;
+
+
+}
 .sign-up-container {
     left: 0;
     width: 50%;
@@ -290,6 +295,7 @@ font-weight:bold;
     opacity: 1;
     animation: show 0.6s;
 }
+
 
 .overlay-container {
     position: absolute;

@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" >
         <nav class="navbar navbar-expand-md  fixed-top">
             <a href="{% url 'bookstore-home' %}" class="navbar-brand"
             ><img src="../../media/logo.png" alt="" id="mainlogo"></a>
@@ -64,18 +64,12 @@
                     <div style="border-right: 1px solid; padding-right: 40px; border-color: rgb(161, 161, 161);">
                         <a href="{% url 'note_list' %}" class="nav-item nav-link navs" >NOTES</a>
                     </div>
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'profile' %}" class="nav-item nav-link navs" >PROFILE</a>
-                        <a href="{% url 'logout' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN OUT</a>
-	                {% else %}
-                        <a href="{% url 'login' %}" class="nav-item nav-link navs" >SIGN IN</a>
-                        <a href="{% url 'register' %}" class="nav-item nav-link navs" style="padding-right: 40px;">SIGN UP</a>
-	                {% endif %}
+
                 </div>
             </div>
         </nav>
     </div>
-    <div id="added-block" >
+    <div id="added-block" class="signupform" >
 			<div class="container mt-5" id="container_l_s">
 				<div class="form-container sign-in-container" id="login_signup">
 					<form method="POST" class="m-0 pt-5">
