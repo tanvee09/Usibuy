@@ -1,0 +1,171 @@
+\ProvidesPackage{beamerthemeMUW}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Create Footline for body slides. To modify content, 
+%% 
+\newcommand{\footlineA}{
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=7ex,dp=2ex,left]{title in head/foot}%
+	\hspace{0.5cm} \vspace{-0.06cm} \includegraphics[width=.19\paperwidth]{Images/logo.png}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=7ex,dp=2ex,left,rightskip=.3cm]{title in head/foot}%
+     \vspace{0.17cm}\hspace{-0.07cm}
+     \textsf{\fontsize{4pt}{0cm}\selectfont
+     \hfill \insertframenumber
+     }
+    \end{beamercolorbox}%
+    }%
+  \vskip0pt%
+}
+}
+
+\newcommand{\footlineB}{
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=7ex,dp=2ex,left]{title in head/foot}%
+	\hspace{0.5cm} \vspace{-0.06cm} \includegraphics[width=.19\paperwidth]{Images/logo.png}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=7ex,dp=2ex,left,rightskip=.3cm]{title in head/foot}%
+     \vspace{0.17cm}\hspace{-0.07cm}
+     \textsf{\fontsize{4pt}{0cm}\selectfont
+     \hfill \insertframenumber
+     }
+    \end{beamercolorbox}%
+    }%
+  \vskip0pt%
+}
+}
+
+\newcommand{\footlineC}{
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=7ex,dp=2ex,left]{title in head/foot}%
+	\hspace{0.5cm} \vspace{-0.06cm} \includegraphics[width=.19\paperwidth]{Images/logo.png}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=7ex,dp=2ex,left,rightskip=.3cm]{title in head/foot}%
+     \vspace{0.17cm}\hspace{-0.07cm}
+     \textsf{\fontsize{4pt}{0cm}\selectfont
+     \hfill \insertframenumber
+     }
+    \end{beamercolorbox}%
+    }%
+  \vskip0pt%
+}
+}
+
+\newcommand{\titlepageBlue}{ % % This block is for the white background title page
+\setbeamertemplate{footline}
+  {\hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=7ex,dp=2ex,left]{author in head/foot}%
+      \hspace{0.5cm} \vspace{-0.06cm} \includegraphics[width=.19\paperwidth]{Images/logo.png}
+    \end{beamercolorbox}%
+      }%
+    \vskip0pt%
+  }
+\setbeamertemplate{title page}
+  { \vspace{2cm}
+    \begin{beamercolorbox}[wd=0.9\paperwidth,dp=2ex,left]{title in head/foot}%
+    \usebeamerfont{title}{\Huge\inserttitle\par}
+    \usebeamerfont{institute}{\normalsize\insertinstitute\par}
+    \bigskip
+    \usebeamerfont{author}{\normalsize\insertauthor\par}
+    \bigskip
+    
+    \usebeamerfont{date}\insertdate\par
+    \end{beamercolorbox}
+  }
+\setbeamercolor{background canvas}{bg=blueMUW}  
+}
+
+\newcommand{\titlepageWhite}{ % % This block is for the white background title page
+\setbeamertemplate{footline}
+  {\hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=7ex,dp=2ex,left]{title in head/foot}%
+      \hspace{0.5cm} \vspace{-0.06cm} \includegraphics[width=.19\paperwidth]{Images/logo.png}
+    \end{beamercolorbox}%
+      }%
+    \vskip0pt%
+  }
+\setbeamertemplate{title page}
+  { \vspace{2cm}
+  	\begin{beamercolorbox}[wd=0.9\paperwidth,dp=2ex,left]{author in head/foot}%
+    \usebeamerfont{title}{\Huge\inserttitle\par}  
+    \bigskip
+    \usebeamerfont{author}{\normalsize\insertauthor\par}
+    \bigskip
+    \usebeamerfont{institute}{\normalsize\insertinstitute\par}
+    \bigskip
+    \usebeamerfont{date}\insertdate\par
+    \end{beamercolorbox}
+  }
+}
+
+\setbeamertemplate{itemize items}{$\bullet$}
+\setbeamerfont{framesubtitle}{parent=frametitle,size=\large}
+
+\newcommand{\blackSlide}{ 
+\setbeamercolor{background canvas}{bg=black}
+\setbeamercolor{palette primary}{fg=white, bg=black}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{structure}{fg=white}
+\setbeamercolor{itemize item}{fg=white}
+\setbeamercolor{itemize subitem}{fg=white}
+\setbeamercolor{itemize subsubitem}{fg=white}
+\setbeamercolor{itemize/enumerate body}{fg=white}
+\setbeamercolor{itemize/enumerate subbody}{fg=white}
+\setbeamercolor{itemize/enumerate subsubbody}{fg=white}
+}
+
+
+
+
+\newcommand{\sectionheaderWhite}{
+ \setbeamercolor{background canvas}{bg=white}
+ \setbeamertemplate{frametitle}{\nointerlineskip
+   \begin{beamercolorbox}[sep=0.3cm,ht=5.5cm,wd=\paperwidth]{white}
+        \vbox{}\vskip-2ex 
+        \Huge \hskip1ex \insertframetitle \par
+        \vskip0.25ex%
+        
+        \hskip1ex \Large \strut\insertframesubtitle\strut \par
+   \end{beamercolorbox}
+ }
+}
+
+\newcommand{\sectionheaderSkin}{
+ \setbeamercolor{background canvas}{bg=white}
+ \setbeamertemplate{frametitle}{\nointerlineskip
+   \begin{beamercolorbox}[sep=0.3cm,ht=7cm,wd=\paperwidth]{white}
+        \vbox{}\vskip-2ex 
+        \Huge \hskip1ex \insertframetitle \par
+        \vskip0.25ex%
+
+        \hskip1ex \Large \strut\insertframesubtitle\strut \par
+   \end{beamercolorbox}
+ }
+}
+
+\newcommand{\sectionheaderGreen}{
+ \setbeamercolor{background canvas}{bg=greenMUW}
+ \setbeamertemplate{frametitle}{\nointerlineskip
+   \begin{beamercolorbox}[sep=0.3cm,ht=7cm,wd=\paperwidth]{greenMUW}
+        \vbox{}\vskip-2ex 
+        \Huge \hskip1ex \insertframetitle \par
+        \vskip0.25ex%
+        \hskip1ex \Large \strut\insertframesubtitle\strut \par
+   \end{beamercolorbox}
+ }
+}
+
+
+
+\makeatother
