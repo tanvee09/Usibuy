@@ -1,7 +1,6 @@
 **USED BOOKS WEB APP**
 ======================
-
-<br>
+  
 
 TEAM MEMBERS:
 ==============================
@@ -11,7 +10,7 @@ TEAM MEMBERS:
 
 OVERVIEW:
 =========
-Our project is a web app that provides a platformfor buying and selling used books which will helppeople save money on buying new books.Team 
+Our project is a web app that provides a platform for buying and selling used books which will help people save money on buying new books. 
 
 
 TECHNOLOGIES USED:
