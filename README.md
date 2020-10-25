@@ -35,3 +35,9 @@ COMPONENTS OF THE APPLICATION:
 FUTURE PLANS:
 =============
 In the future, we intend to extend the target audience to include the local vendors who sell second-hand books to get books of all genres. It will enable us to have more books on our app and also will help the vendor to increase his sale.
+
+<img src="https://github.com/tanvee09/tanvee09/blob/master/images/Screenshot%20from%202020-10-25%2014-21-36.png" height=300> <img src="https://github.com/tanvee09/tanvee09/blob/master/images/Screenshot%20from%202020-10-25%2014-22-30.png" height=300>
+  
+<img src="https://github.com/tanvee09/tanvee09/blob/master/images/Screenshot%20from%202020-10-25%2014-21-49.png" height=300> <img src="https://github.com/tanvee09/tanvee09/blob/master/images/Screenshot%20from%202020-10-25%2014-22-18.png" height=300>
+  
+<img src="https://github.com/tanvee09/tanvee09/blob/master/images/Screenshot%20from%202020-10-25%2014-22-49.png" height=300> <img src="https://github.com/tanvee09/tanvee09/blob/master/images/Screenshot%20from%202020-10-25%2014-23-11.png" height=300>
